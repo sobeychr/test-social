@@ -1,0 +1,8 @@
+{
+  "name": "test-social",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:sobeychr/test-social.git",
+  "author": "Christopher Sobey <christopher.sobey@mindgeek.com>",
+  "license": "MIT"
+}
