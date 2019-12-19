@@ -1,11 +1,11 @@
 require('colors');
-require('./env');
+require('./../script/env');
 
 const { SERVER_PORT } = process.env;
 
 const express = require('express');
 const app = express();
-const port = SERVER_PORT || 3000;
+const port = SERVER_PORT || 3300;
 
 require('./response/middleware')(app);
 require('./response/basic')(app);
