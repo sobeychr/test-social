@@ -1,4 +1,4 @@
 \.env
-\.yarn-error
+\.yarn-error.log
 coverage/
 node_modules/

@@ -6,6 +6,7 @@
     "author": "Christopher Sobey <christopher.sobey@mindgeek.com>",
     "license": "MIT",
     "scripts": {
+        "ds": "yarn devServer",
         "devServer": "cross-env ENV=development node server/init.js",
         "code": "yarn pretty && yarn lint && yarn test",
         "lint": "eslint .",
@@ -18,7 +19,8 @@
         "colors": "^1.4.0",
         "express": "^4.17.1",
         "node-env-file": "^0.1.8",
-        "response-time": "^2.3.2"
+        "response-time": "^2.3.2",
+        "serve-favicon": "^2.5.0"
     },
     "devDependencies": {
         "cross-env": "^6.0.3",

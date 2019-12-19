@@ -9,6 +9,7 @@ const port = SERVER_PORT || 3000;
 
 require('./response/middleware')(app);
 require('./response/basic')(app);
+require('./response/login')(app);
 require('./response/notFound')(app);
 
 app.listen(port, () => {
