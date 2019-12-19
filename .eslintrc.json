@@ -1,0 +1,35 @@
+{
+    "env": {
+        "browser": true,
+        "node": true,
+        "es2020": true,
+        "jest": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": 11,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "globalReturn": false,
+            "impliedStrict": true,
+            "jsx": true
+        }
+    },
+    "rules": {
+        "comma-dangle": ["error", "always-multiline"],
+        "curly": ["error", "multi-line"],
+        "default-case": "error",
+        "default-param-last": ["error"],
+        "dot-notation": "error",
+        "eqeqeq": "error",
+        "max-classes-per-file": ["error", 1],
+        "no-alert": "error",
+        "no-eval": "error",
+        "no-floating-decimal": "error",
+        "no-multi-spaces": "error",
+        "no-param-reassign": "error",
+        "no-script-url": "error",
+        "no-useless-concat": "error",
+        "semi": ["error", "always"]
+    }
+}

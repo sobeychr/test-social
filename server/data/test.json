@@ -1,0 +1,50 @@
+{
+    "results": [
+        {
+            "gender": "male",
+            "name": { "title": "Mr", "first": "Marco", "last": "Gonzalez" },
+            "location": {
+                "street": { "number": 7388, "name": "Paseo de Extremadura" },
+                "city": "Alcobendas",
+                "state": "Ceuta",
+                "country": "Spain",
+                "postcode": 73915,
+                "coordinates": {
+                    "latitude": "-18.1030",
+                    "longitude": "-7.4914"
+                },
+                "timezone": {
+                    "offset": "0:00",
+                    "description": "Western Europe Time, London, Lisbon, Casablanca"
+                }
+            },
+            "email": "marco.gonzalez@example.com",
+            "login": {
+                "uuid": "b57be07b-70c3-4d89-b8e9-7d172268d6a1",
+                "username": "tinylion537",
+                "password": "lassie",
+                "salt": "EdUpZFLD",
+                "md5": "bfb0db1777f96dbf246a87f4c6c82cfa",
+                "sha1": "f659e6f5f8d80bdfaff82fe6bd795b1990448cdf",
+                "sha256": "299b9a00020df0e21de0922711583faf743adaaf3a2f86c41a9710a3f7676878"
+            },
+            "dob": { "date": "1990-04-12T21:36:32.916Z", "age": 29 },
+            "registered": { "date": "2003-10-31T20:03:36.450Z", "age": 16 },
+            "phone": "911-358-461",
+            "cell": "678-968-945",
+            "id": { "name": "DNI", "value": "26698000-F" },
+            "picture": {
+                "large": "https://randomuser.me/api/portraits/men/46.jpg",
+                "medium": "https://randomuser.me/api/portraits/med/men/46.jpg",
+                "thumbnail": "https://randomuser.me/api/portraits/thumb/men/46.jpg"
+            },
+            "nat": "ES"
+        }
+    ],
+    "info": {
+        "seed": "118b35664492f7f4",
+        "results": 1,
+        "page": 1,
+        "version": "1.3"
+    }
+}

@@ -1,8 +1,29 @@
 {
-  "name": "test-social",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@github.com:sobeychr/test-social.git",
-  "author": "Christopher Sobey <christopher.sobey@mindgeek.com>",
-  "license": "MIT"
+    "name": "test-social",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "git@github.com:sobeychr/test-social.git",
+    "author": "Christopher Sobey <christopher.sobey@mindgeek.com>",
+    "license": "MIT",
+    "scripts": {
+        "devServer": "cross-env ENV=development node server/init.js",
+
+        "code": "yarn pretty && yarn lint && yarn test",
+        "lint": "eslint .",
+        "pretty": "prettier --write --loglevel=warn ./client/**/* ./server/**/*",
+        "test": "cross-env NODE_ENV=test jest",
+        "testCi": "cross-env NODE_ENV=test jest --collectCoverage",
+        "testWatch": "cross-env NODE_ENV=test jest --watch"
+    },
+    "dependencies": {
+        "colors": "^1.4.0",
+        "express": "^4.17.1",
+        "node-env-file": "^0.1.8"
+    },
+    "devDependencies": {
+        "cross-env": "^6.0.3",
+        "eslint": "^6.7.2",
+        "lint-staged": "^9.5.0",
+        "prettier": "^1.19.1"
+    }
 }
