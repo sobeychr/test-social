@@ -6,12 +6,4 @@ import Profile from './profile';
 import User from './User';
 import UserList from './UserList';
 
-export {
-    Event,
-    EventList,
-    Login,
-    Logout,
-    Profile,
-    User,
-    UserList,
-};
+export { Event, EventList, Login, Logout, Profile, User, UserList };

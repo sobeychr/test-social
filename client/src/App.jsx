@@ -5,10 +5,8 @@ import { Provider } from 'react-redux';
 import Router from './Router';
 import store from 'Store';
 import { initApp } from 'Store/action/app';
+import 'style';
 
 store.dispatch(initApp);
 
-render(
-    <Router />,
-    document.getElementById('app'),
-);
+render(<Router />, document.getElementById('app'));

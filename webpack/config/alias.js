@@ -1,4 +1,4 @@
-const { rootPath, srcPath } = require('./path');
+const { srcPath } = require('./path');
 
 module.exports = {
     Component: srcPath + '/component',

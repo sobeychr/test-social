@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+// import { useEffect, useDispatch, useSelector } from 'react-redux';
 import { Button, Form, Modal } from 'react-bootstrap';
 
+const loginRequest = () => new Promise(resolve => setTimeout(resolve, 2500));
+
 const Login = () => {
-    const onSubmit = () => console.log('submitting...');
+    const [isLoading, setLoading] = useState(false);
+
+    useEffect(() => {
+        if (isLoading) {
+            loginRequest().then(() => {
+                setLoading(false);
+            });
+        }
+    }, [isLoading]);
+
+    const onSubmit = e => {
+        e.preventDefault();
+        console.log('submitting...');
+        setLoading(true);
+    };
 
     return (
         <Modal autoFocus show centered backdrop='static' onSubmit={onSubmit}>
@@ -12,12 +29,27 @@ const Login = () => {
             <Modal.Body>
                 <Form>
                     <Form.Group controlId='formEmail'>
-                        <Form.Control type='text' placeholder='username' />
+                        <Form.Control
+                            disabled={isLoading}
+                            placeholder='username'
+                            type='text'
+                        />
                     </Form.Group>
                     <Form.Group controlId='formPassword'>
-                        <Form.Control type='password' placeholder='password' />
+                        <Form.Control
+                            disabled={isLoading}
+                            placeholder='password'
+                            type='password'
+                        />
                     </Form.Group>
-                    <Button block variant='primary' type='submit'>Login</Button>
+                    <Button
+                        block
+                        disabled={isLoading}
+                        type='submit'
+                        variant='primary'
+                    >
+                        {isLoading ? 'loading...' : 'Login'}
+                    </Button>
                 </Form>
             </Modal.Body>
         </Modal>

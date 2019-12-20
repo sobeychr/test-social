@@ -2,15 +2,9 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Redirect } from 'react-router';
 
-import { Event,
-    EventList,
-    Login,
-    Logout,
-    Profile,
-    User,
-    UserList, } from 'Page';
+import { Event, EventList, Login, Logout, Profile, User, UserList } from 'Page';
 
-const Home = () => <Redirect to='/login' />
+const Home = () => <Redirect to='/login' />;
 
 const Router = () => (
     <BrowserRouter>
