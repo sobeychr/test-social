@@ -9,4 +9,6 @@ import 'style';
 
 store.dispatch(initApp);
 
-render(<Router />, document.getElementById('app'));
+render(
+    <Provider store={store}>
+    <Router /></Provider>, document.getElementById('app'));

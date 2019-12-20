@@ -1,47 +1,42 @@
-import React, { useState, useEffect } from 'react';
-// import { useEffect, useDispatch, useSelector } from 'react-redux';
-import { Button, Form, Modal } from 'react-bootstrap';
-
-const loginRequest = () => new Promise(resolve => setTimeout(resolve, 2500));
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Redirect } from 'react-router';
+import { Button, Modal } from 'react-bootstrap';
+import Form from 'react-jsonschema-form';
+import { login, isLoggedIn } from 'Store/action/user';
+import { schema, uiSchema } from './schema';
 
 const Login = () => {
+    const isLogged = useSelector(isLoggedIn);
     const [isLoading, setLoading] = useState(false);
-
-    useEffect(() => {
-        if (isLoading) {
-            loginRequest().then(() => {
-                setLoading(false);
-            });
-        }
-    }, [isLoading]);
+    const dispatch = useDispatch();
 
     const onSubmit = e => {
-        e.preventDefault();
-        console.log('submitting...');
         setLoading(true);
+
+        const { formData } = e;
+        dispatch(login(formData));
     };
 
+    if(isLogged) {
+        return <Redirect to='/profile' />;
+    }
+
     return (
-        <Modal autoFocus show centered backdrop='static' onSubmit={onSubmit}>
+        <Modal show centered backdrop='static'>
             <Modal.Header>
                 <Modal.Title>Login</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <Form>
-                    <Form.Group controlId='formEmail'>
-                        <Form.Control
-                            disabled={isLoading}
-                            placeholder='username'
-                            type='text'
-                        />
-                    </Form.Group>
-                    <Form.Group controlId='formPassword'>
-                        <Form.Control
-                            disabled={isLoading}
-                            placeholder='password'
-                            type='password'
-                        />
-                    </Form.Group>
+                <Form
+                    action='/'
+                    autocomplete='off'
+                    disabled={isLoading}
+                    method='post'
+                    onSubmit={onSubmit}
+                    schema={schema}
+                    uiSchema={uiSchema}
+                >
                     <Button
                         block
                         disabled={isLoading}

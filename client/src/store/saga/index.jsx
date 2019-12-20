@@ -6,9 +6,6 @@ import { INIT_APP } from 'Store/type';
 function* initAppState() {
     try {
         // fetch credentials here
-        console.log('[initAppState]-action', {
-            // env: process.env,
-        });
     } catch (err) {
         console.error('[initAppState]-try', err);
     }
