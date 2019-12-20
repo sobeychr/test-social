@@ -11,4 +11,7 @@ store.dispatch(initApp);
 
 render(
     <Provider store={store}>
-    <Router /></Provider>, document.getElementById('app'));
+        <Router />
+    </Provider>,
+    document.getElementById('app'),
+);

@@ -1,14 +1,10 @@
 export const schema = {
     type: 'object',
-    required: [
-        'username',
-        'password',
-        'secret',
-    ],
+    required: ['username', 'password', 'secret'],
     properties: {
         username: {
             type: 'string',
-            enumNames: ['test', 'mark', 'bob']
+            enumNames: ['test', 'mark', 'bob'],
         },
         password: {
             type: 'string',
@@ -18,11 +14,7 @@ export const schema = {
             default: 'ttt',
         },
     },
-    'ui:order': [
-        'username',
-        'password',
-        'secret',
-    ],
+    'ui:order': ['username', 'password', 'secret'],
 };
 
 export const uiSchema = {

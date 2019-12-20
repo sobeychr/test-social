@@ -1,24 +1,28 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router';
-import { Button, Modal } from 'react-bootstrap';
-import Form from 'react-jsonschema-form';
-import { login, isLoggedIn } from 'Store/action/user';
-import { schema, uiSchema } from './schema';
+import { Modal } from 'react-bootstrap';
+
+import { isLoading as isLoadingStore, secretGet } from 'Store/action/app';
+import { loginFetch, isLoggedIn as isLoggedInStore } from 'Store/action/user';
+
+import LoginForm from './form';
 
 const Login = () => {
-    const isLogged = useSelector(isLoggedIn);
-    const [isLoading, setLoading] = useState(false);
+    const isLoggedIn = useSelector(isLoggedInStore);
+    const isLoading = useSelector(isLoadingStore);
+    const secret = useSelector(secretGet);
+    const [isProcessing, setProcessing] = useState(false);
     const dispatch = useDispatch();
 
     const onSubmit = e => {
-        setLoading(true);
+        setProcessing(true);
 
         const { formData } = e;
-        dispatch(login(formData));
+        dispatch(loginFetch(formData));
     };
 
-    if(isLogged) {
+    if (isLoggedIn) {
         return <Redirect to='/profile' />;
     }
 
@@ -28,24 +32,18 @@ const Login = () => {
                 <Modal.Title>Login</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <Form
-                    action='/'
-                    autocomplete='off'
-                    disabled={isLoading}
-                    method='post'
-                    onSubmit={onSubmit}
-                    schema={schema}
-                    uiSchema={uiSchema}
-                >
-                    <Button
-                        block
-                        disabled={isLoading}
-                        type='submit'
-                        variant='primary'
-                    >
-                        {isLoading ? 'loading...' : 'Login'}
-                    </Button>
-                </Form>
+                {isLoading ? (
+                    <p>
+                        <i>initializing</i>
+                    </p>
+                ) : (
+                    <LoginForm
+                        secret={secret}
+                        onSubmit={onSubmit}
+                        isProcessing={isProcessing}
+                        setProcessing={setProcessing}
+                    />
+                )}
             </Modal.Body>
         </Modal>
     );

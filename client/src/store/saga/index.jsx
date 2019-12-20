@@ -1,23 +1,14 @@
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
-// import get from 'lodash/fp/get';
-
-import { INIT_APP } from 'Store/type';
-
-function* initAppState() {
-    try {
-        // fetch credentials here
-    } catch (err) {
-        console.error('[initAppState]-try', err);
-    }
-}
+import { takeEvery, takeLatest } from 'redux-saga/effects';
+import { initApp, fetchSecret } from 'Store/saga/app';
+import { fetchUser } from 'Store/saga/user';
+import { APP_INIT, APP_SECRET_FETCH, USER_LOGIN_FETCH } from 'Store/type';
 
 function* saga() {
     try {
-        yield takeLatest(INIT_APP, initAppState);
-        // yield takeLatest(CHAT_INIT, initChat);
+        yield takeLatest(APP_INIT, initApp);
 
-        // yield takeEvery(CHAT_MESSAGE_START, fetchMessage);
-        // yield takeEvery(CHAT_USER_START, fetchUser);
+        yield takeEvery(APP_SECRET_FETCH, fetchSecret);
+        yield takeEvery(USER_LOGIN_FETCH, fetchUser);
     } catch (err) {
         console.error('[saga]', err);
     }

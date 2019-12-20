@@ -7,6 +7,8 @@ const express = require('express');
 const app = express();
 const port = SERVER_PORT || 3300;
 
+app.use(express.json());
+
 require('./response/middleware')(app);
 require('./response/basic')(app);
 require('./response/login')(app);

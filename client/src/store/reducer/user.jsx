@@ -1,4 +1,4 @@
-import { USER_LOGIN } from 'Store/type';
+import { USER_LOGIN_FETCH, USER_LOGIN_SET } from 'Store/type';
 
 const initialState = {
     isLoggedIn: false,
@@ -8,12 +8,11 @@ const initialState = {
 const user = (state = initialState, action) => {
     const { payload, type } = action;
 
-    if (type === USER_LOGIN) {
-        const { username } = payload;
+    if (type === USER_LOGIN_SET) {
         return {
             ...state,
             isLoggedIn: true,
-            username,
+            username: payload,
         };
     } else {
         return state;
