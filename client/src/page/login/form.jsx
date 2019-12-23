@@ -23,7 +23,7 @@ const LoginForm = () => {
 
     return (
         <>
-            {hasErrorUser ? <LoginError /> : null}
+            {hasErrorUser && <LoginError />}
             <Form
                 action='/'
                 autocomplete='off'

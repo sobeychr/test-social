@@ -10,7 +10,7 @@ const Router = () => (
     <BrowserRouter>
         <Switch>
             <Route exact path='/event' component={Event} />
-            <Route exact path='/EventList' component={EventList} />
+            <Route exact path='/eventlist' component={EventList} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/logout' component={Logout} />
             <Route exact path='/profile' component={Profile} />

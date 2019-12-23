@@ -5,9 +5,7 @@ import {
     APP_SECRET_SET,
 } from 'Store/type';
 
-export const initApp = {
-    type: APP_INIT,
-};
+export const initApp = { type: APP_INIT };
 export const secretError = { type: APP_SECRET_ERROR };
 export const secretFetch = { type: APP_SECRET_FETCH };
 

@@ -1,7 +1,10 @@
-import { USER_LOGIN_ERROR, USER_LOGIN_FETCH, USER_LOGIN_SET } from 'Store/type';
+import {
+    USER_LOGIN_ERROR,
+    USER_LOGIN_FETCH,
+    USER_LOGIN_SET,
+} from 'Store/type';
 
 export const loginError = { type: USER_LOGIN_ERROR };
-
 export const loginFetch = ({ username, password, secret }) => ({
     type: USER_LOGIN_FETCH,
     payload: {
@@ -10,10 +13,9 @@ export const loginFetch = ({ username, password, secret }) => ({
         secret,
     },
 });
-
-export const loginSet = ({ username }) => ({
+export const loginSet = payload => ({
     type: USER_LOGIN_SET,
-    payload: username,
+    payload,
 });
 
 export const hasError = state => state.user.error;

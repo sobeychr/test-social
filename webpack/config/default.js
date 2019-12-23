@@ -3,7 +3,7 @@ const modules = require('./module');
 const { rootPath, srcPath } = require('./path');
 
 module.exports = {
-    entry: rootPath + '/client/src/App.jsx',
+    entry: rootPath + '/client/src/index.jsx',
     output: {
         path: rootPath + '/client',
         filename: 'app.js',

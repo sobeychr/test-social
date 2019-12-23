@@ -1,6 +1,7 @@
 import { call, delay, put } from 'redux-saga/effects';
 import { get } from 'Store/api';
 import { secretError, secretFetch, secretSet } from 'Store/action/app';
+import { fetchCookie } from 'Store/saga/user';
 
 function* fetchSecret() {
     try {
@@ -9,6 +10,7 @@ function* fetchSecret() {
         if (json) {
             // yield delay(3500);
             yield put(secretSet(json));
+            yield call(fetchCookie, json);
         } else {
             yield put(secretError);
         }

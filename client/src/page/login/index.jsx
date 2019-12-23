@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router';
-import { Modal } from 'react-bootstrap';
+import Modal from 'Component/modal';
 
 import {
     hasError as hasErrorStore,
@@ -31,11 +31,8 @@ const Login = () => {
     }
 
     return (
-        <Modal show centered backdrop='static'>
-            <Modal.Header>
-                <Modal.Title>Login</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>{body}</Modal.Body>
+        <Modal show centered backdrop='static' title='Login'>
+            {body}
         </Modal>
     );
 };

@@ -1,9 +1,14 @@
-import { USER_LOGIN_ERROR, USER_LOGIN_FETCH, USER_LOGIN_SET } from 'Store/type';
+import {
+    USER_LOGIN_ERROR,
+    USER_LOGIN_FETCH,
+    USER_LOGIN_SET,
+} from 'Store/type';
 
 const initialState = {
     error: false,
     loading: false,
     isLoggedIn: false,
+    token: '',
     username: '',
 };
 
@@ -22,10 +27,12 @@ const user = (state = initialState, action) => {
             loading: true,
         };
     } else if (type === USER_LOGIN_SET) {
+        const { token, username } = payload;
         return {
             ...state,
             isLoggedIn: true,
-            username: payload,
+            token,
+            username,
         };
     } else {
         return state;
