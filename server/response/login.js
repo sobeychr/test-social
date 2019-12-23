@@ -18,25 +18,17 @@ module.exports = app => {
         } = req;
         const access = secrets.find(entry => entry.secret === secret);
 
-        json(res, {
-            username,
-            secret,
-            access,
-            secrets,
-        });
-
-        /*
         if (username && access) {
             json(res, {
                 username,
                 secret,
+                time: access.time,
             });
         }
 
         res.status(401)
             .send('403: Forbidden')
             .end();
-        */
     });
 
     app.get('/login/secret', (req, res) => {

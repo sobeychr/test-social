@@ -1,6 +1,9 @@
 require('colors');
 const responseTime = require('response-time');
 
+const headers = ['Accept', 'Content-Type'];
+const methods = ['GET', 'OPTIONS', 'POST'];
+
 module.exports = app => {
     app.use(
         responseTime((req, res, time) => {
@@ -17,8 +20,8 @@ module.exports = app => {
     );
 
     app.use((req, res, next) => {
-        res.header('Access-Control-Allow-Headers', 'testHeader, Content-Type');
-        res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+        res.header('Access-Control-Allow-Headers', headers.join(', '));
+        res.header('Access-Control-Allow-Methods', methods.join(', '));
         res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
         next();
     });

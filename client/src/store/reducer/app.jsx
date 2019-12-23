@@ -16,8 +16,7 @@ const app = (state = initialState, action) => {
             error: true,
             loading: false,
         };
-    }
-    else if (type === APP_SECRET_FETCH) {
+    } else if (type === APP_SECRET_FETCH) {
         return {
             ...state,
             loading: true,

@@ -1,6 +1,6 @@
 import { call, delay, put } from 'redux-saga/effects';
 import { post } from 'Store/api';
-import { loginSet } from 'Store/action/user';
+import { loginError, loginSet } from 'Store/action/user';
 
 function* fetchUser(action) {
     try {
@@ -13,12 +13,13 @@ function* fetchUser(action) {
         });
 
         if (json) {
-            console.log('[fetchUser]', json);
-
-            yield delay(3500);
+            // yield delay(3500);
             yield put(loginSet(username));
+        } else {
+            yield put(loginError);
         }
     } catch (err) {
+        yield put(loginError);
         console.error('[fetchSecret]-try', err);
     }
 }

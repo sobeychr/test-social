@@ -9,8 +9,7 @@ function* fetchSecret() {
         if (json) {
             // yield delay(3500);
             yield put(secretSet(json));
-        }
-        else {
+        } else {
             yield put(secretError);
         }
     } catch (err) {
