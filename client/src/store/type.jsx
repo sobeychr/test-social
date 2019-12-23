@@ -1,4 +1,5 @@
 export const APP_INIT = 'APP_INIT';
+export const APP_SECRET_ERROR = 'APP_SECRET_ERROR';
 export const APP_SECRET_FETCH = 'APP_SECRET_FETCH';
 export const APP_SECRET_SET = 'APP_SECRET_SET';
 

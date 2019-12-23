@@ -1,6 +1,7 @@
-import { APP_SECRET_FETCH, APP_SECRET_SET } from 'Store/type';
+import { APP_SECRET_ERROR, APP_SECRET_FETCH, APP_SECRET_SET } from 'Store/type';
 
 const initialState = {
+    error: false,
     loading: false,
     secret: '',
     time: 0,
@@ -9,7 +10,14 @@ const initialState = {
 const app = (state = initialState, action) => {
     const { payload, type } = action;
 
-    if (type === APP_SECRET_FETCH) {
+    if (type === APP_SECRET_ERROR) {
+        return {
+            ...state,
+            error: true,
+            loading: false,
+        };
+    }
+    else if (type === APP_SECRET_FETCH) {
         return {
             ...state,
             loading: true,
