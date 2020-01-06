@@ -7,6 +7,9 @@ const links = [
     { href: '#set1', title: 'Setting 1' },
     { href: '#set2', title: 'Setting 2' },
     { href: '#set3', title: 'Setting 3' },
+    { divider: true },
+    { href: '/logout', title: 'Log out' },
+    { href: '/about', title: 'About' },
 ];
 
 const Setting = () => (

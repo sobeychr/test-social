@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link as BaseLink } from 'react-router-dom';
 import { Nav as BaseNav } from 'react-bootstrap';
 
 const Link = ({ disabled = false, href = '#', title }) => (
-    <BaseNav.Link href={href} disabled={disabled}>
+    <BaseLink className={`nav-link ${disabled && 'disabled'}`} to={href}>
         {title}
-    </BaseNav.Link>
+    </BaseLink>
 );
 
 const Nav = ({ className, links, asItems }) => (

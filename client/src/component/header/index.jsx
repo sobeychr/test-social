@@ -13,7 +13,6 @@ const Header = ({ page }) => {
     return (
         <Navbar
             className='justify-content-between'
-            expand='lg'
             variant='pills'
             sticky='top'
         >
