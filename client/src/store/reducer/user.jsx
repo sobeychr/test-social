@@ -1,6 +1,7 @@
 import {
     USER_LOGIN_ERROR,
     USER_LOGIN_FETCH,
+    USER_LOGIN_REMOVE,
     USER_LOGIN_SET,
     USER_TOKEN_FETCH,
 } from 'Store/type';
@@ -26,6 +27,14 @@ const user = (state = initialState, action) => {
         return {
             ...state,
             loading: true,
+        };
+    } else if (type === USER_LOGIN_REMOVE) {
+        return {
+            ...state,
+            isLoggedIn: false,
+            loading: false,
+            token: '',
+            username: '',
         };
     } else if (type === USER_LOGIN_SET) {
         const { token, username } = payload;

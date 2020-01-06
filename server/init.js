@@ -11,6 +11,7 @@ app.use(express.json());
 
 require('./response/middleware')(app);
 require('./response/basic')(app);
+require('./response/event')(app);
 require('./response/login')(app);
 require('./response/notFound')(app);
 

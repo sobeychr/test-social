@@ -2,13 +2,23 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Redirect } from 'react-router';
 
-import { Event, EventList, Login, Logout, Profile, User, UserList } from 'Page';
+import {
+    About,
+    Event,
+    EventList,
+    Login,
+    Logout,
+    Profile,
+    User,
+    UserList,
+} from 'Page';
 
 const Home = () => <Redirect to='/login' />;
 
 const Router = () => (
     <BrowserRouter>
         <Switch>
+            <Route exact path='/About' component={About} />
             <Route exact path='/event' component={Event} />
             <Route exact path='/eventlist' component={EventList} />
             <Route exact path='/login' component={Login} />

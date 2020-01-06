@@ -5,13 +5,14 @@ import { getUsername } from 'Store/action/user';
 
 import Location from './location';
 import Setting from './setting';
-import Style from './styles';
+import Style from './style';
 
 const Header = ({ page }) => {
     const username = useSelector(getUsername);
 
     return (
         <Navbar
+            bg='dark'
             className='justify-content-between'
             variant='pills'
             sticky='top'

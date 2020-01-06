@@ -1,7 +1,11 @@
 import { call, delay, put } from 'redux-saga/effects';
 import { post } from 'Store/api';
 import { loginError, loginSet, tokenFetch } from 'Store/action/user';
-import { get as getCookie, set as setCookie } from 'Util/cookie';
+import {
+    get as getCookie,
+    remove as removeCookie,
+    set as setCookie,
+} from 'Util/cookie';
 
 const tokenCookie = 'utoken';
 
@@ -47,8 +51,16 @@ function* fetchUser(action) {
         }
     } catch (err) {
         yield put(loginError);
-        console.error('[fetchSecret]-try', err);
+        console.error('[fetchUser]-try', err);
     }
 }
 
-export { fetchCookie, fetchUser };
+function* removeUser() {
+    try {
+        removeCookie(tokenCookie);
+    } catch (err) {
+        console.error('[removeUser]-try', err);
+    }
+}
+
+export { fetchCookie, fetchUser, removeUser };

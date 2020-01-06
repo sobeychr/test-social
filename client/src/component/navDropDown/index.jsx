@@ -1,10 +1,13 @@
 import React from 'react';
 import { Nav, NavDropdown as BaseNavDropdown } from 'react-bootstrap';
+import { Link as BaseLink } from 'react-router-dom';
 
 const Divider = () => <BaseNavDropdown.Divider />;
 
-const Item = ({ href, title }) => (
-    <BaseNavDropdown.Item href={href}>{title}</BaseNavDropdown.Item>
+const Link = ({ href, title }) => (
+    <BaseLink className='dropdown-item' to={href}>
+        {title}
+    </BaseLink>
 );
 
 const NavDropDown = ({ className, links, title }) => {
@@ -15,7 +18,7 @@ const NavDropDown = ({ className, links, title }) => {
                     divider ? (
                         <Divider key={key} />
                     ) : (
-                        <Item key={key} href={href} title={title} />
+                        <Link key={key} href={href} title={title} />
                     ),
                 )}
             </BaseNavDropdown>
