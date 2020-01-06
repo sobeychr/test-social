@@ -1,0 +1,23 @@
+@import '~Style/index';
+
+.navbar {
+    .navbar-brand .logo {
+        background: transparent url('~Asset/favicon.png') top left no-repeat;
+        background-size: contain;
+        border-radius: 25%;
+        display: inline-block;
+        height: 30px;
+        margin-right: 5px;
+        vertical-align: top;
+        width: 30px;
+    }
+
+    .location .disabled {
+        font-style: italic;
+    }
+
+    .setting .dropdown-menu.show {
+        left: auto;
+        right: 0;
+    }
+}

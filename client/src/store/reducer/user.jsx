@@ -2,6 +2,7 @@ import {
     USER_LOGIN_ERROR,
     USER_LOGIN_FETCH,
     USER_LOGIN_SET,
+    USER_TOKEN_FETCH,
 } from 'Store/type';
 
 const initialState = {
@@ -31,8 +32,14 @@ const user = (state = initialState, action) => {
         return {
             ...state,
             isLoggedIn: true,
+            loading: false,
             token,
             username,
+        };
+    } else if (type === USER_TOKEN_FETCH) {
+        return {
+            ...state,
+            loading: true,
         };
     } else {
         return state;

@@ -6,3 +6,4 @@ export const APP_SECRET_SET = 'APP_SECRET_SET';
 export const USER_LOGIN_ERROR = 'USER_LOGIN_ERROR';
 export const USER_LOGIN_FETCH = 'USER_LOGIN_FETCH';
 export const USER_LOGIN_SET = 'USER_LOGIN_SET';
+export const USER_TOKEN_FETCH = 'USER_TOKEN_FETCH';

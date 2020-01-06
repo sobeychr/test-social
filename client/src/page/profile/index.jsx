@@ -1,16 +1,11 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { Redirect } from 'react-router';
-import { isLoggedIn } from 'Store/action/user';
+import Header from 'Component/header';
+import ValidateLogin from 'Component/validateLogin';
 
-const Profile = () => {
-    const isLogged = useSelector(isLoggedIn);
-
-    if (!isLogged) {
-        return <Redirect to='/login' />;
-    }
-
-    return <h1>Profile</h1>;
-};
+const Profile = () => (
+    <ValidateLogin>
+        <Header page='Home' />
+    </ValidateLogin>
+);
 
 export default Profile;

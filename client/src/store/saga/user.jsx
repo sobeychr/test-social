@@ -1,6 +1,6 @@
 import { call, delay, put } from 'redux-saga/effects';
 import { post } from 'Store/api';
-import { loginError, loginSet } from 'Store/action/user';
+import { loginError, loginSet, tokenFetch } from 'Store/action/user';
 import { get as getCookie, set as setCookie } from 'Util/cookie';
 
 const tokenCookie = 'utoken';
@@ -10,6 +10,8 @@ function* fetchCookie(action) {
         const token = getCookie(tokenCookie);
 
         if (token) {
+            yield put(tokenFetch);
+
             const { secret } = action;
             const json = yield call(post, 'login/auth', {
                 secret,
