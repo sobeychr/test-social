@@ -7,7 +7,7 @@
         border-radius: 25%;
         display: inline-block;
         height: 30px;
-        margin-right: 5px;
+        margin-right: 0.625em;
         vertical-align: top;
         width: 30px;
     }
@@ -16,8 +16,18 @@
         font-style: italic;
     }
 
-    .setting .dropdown-menu.show {
-        left: auto;
-        right: 0;
+    .setting {
+        .dropdown-menu.show {
+            left: auto;
+            right: 0;
+        }
+        .dropdown-item svg {
+            &:first-child {
+                margin-right: 0.625em;
+            }
+            &:last-child {
+                margin-left: 0.625em;
+            }
+        }
     }
 }
