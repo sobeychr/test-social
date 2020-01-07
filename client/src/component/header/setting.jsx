@@ -1,7 +1,7 @@
 import React from 'react';
 import { Nav, NavDropdown } from 'react-bootstrap';
 import { FaBarChart, FaBeer, FaBlind, FaCamera, FaTag, FaUserTimes } from 'react-icons/lib/fa';
-import NavDropDown from 'Component/navDropDown';
+import { NavDropDown } from 'Component/nav';
 
 const links = [
     { href: '#set0', preicon: <FaBarChart/>, title: 'Setting 0' },

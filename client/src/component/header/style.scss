@@ -1,6 +1,6 @@
 @import '~Style/index';
 
-@mixin navMargin($margin) {
+@mixin navIcons($margin) {
     svg {
         &:first-child {
             margin-right: $margin;
@@ -11,31 +11,41 @@
     }
 }
 
-.navbar {
-    .navbar-brand .logo {
-        background: transparent url('~Asset/favicon.png') top left no-repeat;
-        background-size: contain;
-        border-radius: 25%;
-        display: inline-block;
-        height: 30px;
-        margin-right: 0.3em;
-        vertical-align: top;
-        width: 30px;
-    }
+#header {
+    font-size: 1.5em;
 
-    .location {
-        .nav-link {
-            @include navMargin(0.3em);
+    .navbar {
+        .navbar-brand .logo {
+            background: transparent url('~Asset/favicon.png') top left no-repeat;
+            background-size: contain;
+            border-radius: 25%;
+            display: inline-block;
+            height: 30px;
+            margin-right: 0.3em;
+            vertical-align: top;
+            width: 30px;
         }
-    }
 
-    .setting {
-        .dropdown-menu.show {
-            left: auto;
-            right: 0;
+        .location {
+            .nav-link {
+                @include navIcons(0.3em);
+            }
+
+            @media (max-width: 480px) {
+                .nav-link span {
+                    display: none;
+                }
+            }
         }
-        .dropdown-item {
-            @include navMargin(0.5em);
+
+        .setting {
+            .dropdown-menu.show {
+                left: auto;
+                right: 0;
+            }
+            .dropdown-item {
+                @include navIcons(0.5em);
+            }
         }
     }
 }

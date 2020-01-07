@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaCalendar, FaHome } from 'react-icons/lib/fa';
 import MdContacts from 'react-icons/lib/md/contacts';
-import Nav from 'Component/nav';
+import { NavDefault } from 'Component/nav';
 import { appendObject } from 'Util/array';
 
 const links = [
@@ -12,7 +12,7 @@ const links = [
 
 const Location = ({ page }) => {
     const newLinks = appendObject(links, 'title', page, { disabled: true });
-    return <Nav className='mr-auto location' links={newLinks} />;
+    return <NavDefault className='mr-auto location' links={newLinks} />;
 };
 
 export default Location;

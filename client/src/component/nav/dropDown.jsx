@@ -1,6 +1,6 @@
 import React from 'react';
 import { Nav, NavDropdown as BaseNavDropdown } from 'react-bootstrap';
-import NavLink from 'Component/navLink';
+import NavLink from './link';
 
 const Divider = () => <BaseNavDropdown.Divider />;
 

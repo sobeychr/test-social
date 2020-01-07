@@ -33,20 +33,22 @@ const Header = ({ page }) => {
     const username = useSelector(getUsername);
 
     return (
-        <Navbar
-            bg='dark'
-            className='justify-content-between'
-            variant='pills'
-            sticky='top'
-        >
-            <Navbar.Brand>
-                {isLogged
-                    ? <LoggedInUser username={username}/>
-                    : <LoggedOutUser/>
-                }
-            </Navbar.Brand>
-            {isLogged && <LoggedInMenu page={page}/>}
-        </Navbar>
+        <header id='header'>
+            <Navbar
+                bg='dark'
+                className='justify-content-between'
+                variant='pills'
+                sticky='top'
+            >
+                <Navbar.Brand>
+                    {isLogged
+                        ? <LoggedInUser username={username}/>
+                        : <LoggedOutUser/>
+                    }
+                </Navbar.Brand>
+                {isLogged && <LoggedInMenu page={page}/>}
+            </Navbar>
+        </header>
     );
 };
 
