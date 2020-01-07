@@ -1,5 +1,16 @@
 @import '~Style/index';
 
+@mixin navMargin($margin) {
+    svg {
+        &:first-child {
+            margin-right: $margin;
+        }
+        &:last-child {
+            margin-left: $margin;
+        }
+    }
+}
+
 .navbar {
     .navbar-brand .logo {
         background: transparent url('~Asset/favicon.png') top left no-repeat;
@@ -7,13 +18,15 @@
         border-radius: 25%;
         display: inline-block;
         height: 30px;
-        margin-right: 0.625em;
+        margin-right: 0.3em;
         vertical-align: top;
         width: 30px;
     }
 
-    .location .disabled {
-        font-style: italic;
+    .location {
+        .nav-link {
+            @include navMargin(0.3em);
+        }
     }
 
     .setting {
@@ -21,13 +34,8 @@
             left: auto;
             right: 0;
         }
-        .dropdown-item svg {
-            &:first-child {
-                margin-right: 0.625em;
-            }
-            &:last-child {
-                margin-left: 0.625em;
-            }
+        .dropdown-item {
+            @include navMargin(0.5em);
         }
     }
 }

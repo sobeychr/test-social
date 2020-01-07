@@ -1,10 +1,9 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import Header from 'Component/header';
-import ValidateLogin from 'Component/validateLogin';
 
 const EventList = () => (
-    <ValidateLogin>
+    <>
         <Header />
         <Container className='text-justify'>
             <h1>About</h1>
@@ -142,7 +141,7 @@ const EventList = () => (
                 risus.
             </p>
         </Container>
-    </ValidateLogin>
+    </>
 );
 
 export default EventList;

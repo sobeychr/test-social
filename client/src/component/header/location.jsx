@@ -1,11 +1,13 @@
 import React from 'react';
+import { FaCalendar, FaHome } from 'react-icons/lib/fa';
+import MdContacts from 'react-icons/lib/md/contacts';
 import Nav from 'Component/nav';
 import { appendObject } from 'Util/array';
 
 const links = [
-    { href: '/profile', title: 'Home' },
-    { href: '/eventlist', title: 'Events' },
-    { href: '/userlist', title: 'Users' },
+    { href: '/profile', preicon: <FaHome/>, title: 'Home' },
+    { href: '/eventlist', preicon: <FaCalendar/>, title: 'Events' },
+    { href: '/userlist', preicon: <MdContacts/>, title: 'Users' },
 ];
 
 const Location = ({ page }) => {
