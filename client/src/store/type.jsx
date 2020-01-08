@@ -3,6 +3,9 @@ export const APP_SECRET_ERROR = 'APP_SECRET_ERROR';
 export const APP_SECRET_FETCH = 'APP_SECRET_FETCH';
 export const APP_SECRET_SET = 'APP_SECRET_SET';
 
+export const EVENT_FETCH = 'EVENT_FETCH';
+export const EVENT_SET = 'EVENT_SET';
+
 export const USER_LOGIN_ERROR = 'USER_LOGIN_ERROR';
 export const USER_LOGIN_FETCH = 'USER_LOGIN_FETCH';
 export const USER_LOGIN_REMOVE = 'USER_LOGIN_REMOVE';
