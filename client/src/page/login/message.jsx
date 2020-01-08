@@ -1,6 +1,10 @@
 import React from 'react';
 
-export const AppError = () => <p>Error initializing</p>;
-export const AppLoading = () => <p>initializing</p>;
+export const AppError = () => (
+    <p className='error text-danger'>Error initializing</p>
+);
+export const AppLoading = () => <p className='init text-light'>initializing</p>;
 
-export const LoginError = () => <p>login error</p>;
+export const LoginError = () => (
+    <p className='error text-danger'>login error</p>
+);

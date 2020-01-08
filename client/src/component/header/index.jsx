@@ -8,14 +8,14 @@ import Location from './location';
 import Setting from './setting';
 import Style from './style';
 
-const LoggedInMenu = ({page}) => (
+const LoggedInMenu = ({ page }) => (
     <React.Fragment>
         <Location page={page} />
         <Setting />
     </React.Fragment>
 );
 
-const LoggedInUser = ({username}) => (
+const LoggedInUser = ({ username }) => (
     <React.Fragment>
         <i className='logo' />
         {username}
@@ -33,7 +33,7 @@ const Header = ({ page }) => {
     const username = useSelector(getUsername);
 
     return (
-        <header id='header'>
+        <header className='header'>
             <Navbar
                 bg='dark'
                 className='justify-content-between'
@@ -41,12 +41,13 @@ const Header = ({ page }) => {
                 sticky='top'
             >
                 <Navbar.Brand>
-                    {isLogged
-                        ? <LoggedInUser username={username}/>
-                        : <LoggedOutUser/>
-                    }
+                    {isLogged ? (
+                        <LoggedInUser username={username} />
+                    ) : (
+                        <LoggedOutUser />
+                    )}
                 </Navbar.Brand>
-                {isLogged && <LoggedInMenu page={page}/>}
+                {isLogged && <LoggedInMenu page={page} />}
             </Navbar>
         </header>
     );

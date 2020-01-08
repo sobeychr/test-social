@@ -7,6 +7,7 @@ import {
     set as setCookie,
 } from 'Util/cookie';
 
+const useDelay = false;
 const tokenCookie = 'utoken';
 
 function* fetchCookie(action) {
@@ -43,7 +44,7 @@ function* fetchUser(action) {
 
         if (json) {
             const { token } = json;
-            // yield delay(3500);
+            if (useDelay) yield delay(3500);
             yield put(loginSet(json));
             setCookie(tokenCookie, token);
         } else {

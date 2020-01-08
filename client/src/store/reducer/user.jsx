@@ -26,15 +26,12 @@ const user = (state = initialState, action) => {
     } else if (type === USER_LOGIN_FETCH) {
         return {
             ...state,
+            error: false,
             loading: true,
         };
     } else if (type === USER_LOGIN_REMOVE) {
         return {
-            ...state,
-            isLoggedIn: false,
-            loading: false,
-            token: '',
-            username: '',
+            ...initialState,
         };
     } else if (type === USER_LOGIN_SET) {
         const { token, username } = payload;

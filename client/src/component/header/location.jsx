@@ -5,9 +5,9 @@ import { NavDefault } from 'Component/nav';
 import { appendObject } from 'Util/array';
 
 const links = [
-    { href: '/profile', preicon: <FaHome/>, title: 'Home' },
-    { href: '/eventlist', preicon: <FaCalendar/>, title: 'Events' },
-    { href: '/userlist', preicon: <MdContacts/>, title: 'Users' },
+    { href: '/profile', preicon: <FaHome />, title: 'Home' },
+    { href: '/eventlist', preicon: <FaCalendar />, title: 'Events' },
+    { href: '/userlist', preicon: <MdContacts />, title: 'Users' },
 ];
 
 const Location = ({ page }) => {

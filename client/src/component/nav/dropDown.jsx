@@ -4,7 +4,7 @@ import NavLink from './link';
 
 const Divider = () => <BaseNavDropdown.Divider />;
 
-const Link = (props) => <NavLink className='dropdown-item' {...props}/>;
+const Link = props => <NavLink className='dropdown-item' {...props} />;
 
 const NavDropDown = ({ className, links, title }) => {
     return (

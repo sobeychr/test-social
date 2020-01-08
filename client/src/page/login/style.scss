@@ -1,0 +1,11 @@
+.login {
+    letter-spacing: 0.07em;
+    text-transform: capitalize;
+
+    .error {
+        font-weight: bold;
+    }
+    .init {
+        font-style: italic;
+    }
+}

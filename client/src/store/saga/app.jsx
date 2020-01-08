@@ -3,12 +3,14 @@ import { get } from 'Store/api';
 import { secretError, secretFetch, secretSet } from 'Store/action/app';
 import { fetchCookie } from 'Store/saga/user';
 
+const useDelay = false;
+
 function* fetchSecret() {
     try {
         const json = yield call(get, 'login/secret');
 
         if (json) {
-            // yield delay(3500);
+            if (useDelay) yield delay(3500);
             yield put(secretSet(json));
             yield call(fetchCookie, json);
         } else {
