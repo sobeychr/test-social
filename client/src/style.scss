@@ -2,6 +2,30 @@
     min-width: 280px;
 }
 
+@keyframes animLoading {
+    0% {
+        content: '.';
+    }
+    30% {
+        content: '..';
+    }
+    60% {
+        content: '...';
+    }
+    100% {
+        content: '.';
+    }
+}
+.loading {
+    font-style: italic;
+    color: gray;
+
+    &:after {
+        animation: animLoading 4s linear infinite;
+        content: '';
+    }
+}
+
 button:disabled,
 input:disabled,
 textarea:disabled {

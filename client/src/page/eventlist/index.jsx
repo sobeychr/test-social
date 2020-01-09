@@ -1,15 +1,30 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Col, Container, Row } from 'react-bootstrap';
-import FaCalendarPlusO from 'react-icons/lib/fa/calendar-plus-o';
 import Header from 'Component/header';
 import ValidateLogin from 'Component/validateLogin';
-import { getList } from 'Store/action/event';
+import {
+    isLoaded as isLoadedStore,
+    isLoading as isLoadingStore,
+    getList,
+    listFetch,
+} from 'Store/action/event';
 
+import { CreateButton } from './create';
+import List from './list';
+import { Loading } from './message';
 import Style from './style';
 
 const EventList = () => {
-    // const list = useSelector(getList);
+    const isLoaded = useSelector(isLoadedStore);
+    const isLoading = useSelector(isLoadingStore);
+    const isDisplay = isLoaded && !isLoading;
+    const list = useSelector(getList);
+
+    if (!isLoaded && !isLoading) {
+        const dispatch = useDispatch();
+        dispatch(listFetch);
+    }
 
     // <ValidateLogin>
     return (
@@ -17,18 +32,12 @@ const EventList = () => {
             <Header page='Events' />
             <div className='eventlist'>
                 <aside className='aside'>
-                    <Button className='create-button' size='sm' variant='primary'>
-                        <FaCalendarPlusO />
-                        Create new event
-                    </Button>
+                    <CreateButton />
                 </aside>
                 <main className='main'>
-                    <h1>List</h1>
                     <Container>
-                        <Col>
-                            <Row>
-                            </Row>
-                        </Col>
+                        <h1>List</h1>
+                        {isDisplay ? <List list={list} /> : <Loading />}
                     </Container>
                 </main>
             </div>

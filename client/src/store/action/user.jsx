@@ -26,4 +26,4 @@ export const tokenFetch = { type: USER_TOKEN_FETCH };
 export const getUsername = state => state.user.username;
 export const hasError = state => state.user.error;
 export const isLoading = state => state.user.loading;
-export const isLoggedIn = state => state.user.isLoggedIn;
+export const isLoggedIn = state => state.user.loggedIn;

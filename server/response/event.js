@@ -40,7 +40,7 @@ module.exports = app => {
         json(res, list);
     });
 
-    app.get('/eventlist', (req, res) => {
+    app.get('/event/list', (req, res) => {
         json(res, events);
     });
 };

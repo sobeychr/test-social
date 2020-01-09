@@ -13,6 +13,14 @@ import {
 import { LoginError } from './message';
 import { schema, uiSchema } from './schema';
 
+const Loading = () => <p className='loading text-center'>loading</p>;
+
+const Submit = () => (
+    <Button block type='submit' variant='info'>
+        Login
+    </Button>
+);
+
 const LoginForm = () => {
     const isLoading = useSelector(isLoadingStore);
     const hasErrorUser = useSelector(hasErrorStore);
@@ -36,9 +44,7 @@ const LoginForm = () => {
                 }}
                 uiSchema={uiSchema}
             >
-                <Button block disabled={isLoading} type='submit' variant='info'>
-                    {isLoading ? 'loading...' : 'Login'}
-                </Button>
+                {isLoading ? <Loading /> : <Submit />}
             </Form>
         </>
     );
