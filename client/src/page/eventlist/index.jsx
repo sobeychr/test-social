@@ -1,6 +1,5 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Col, Container, Row } from 'react-bootstrap';
 import Header from 'Component/header';
 import ValidateLogin from 'Component/validateLogin';
 import {
@@ -13,7 +12,6 @@ import {
 import { CreateButton } from './create';
 import List from './list';
 import { Loading } from './message';
-import Style from './style';
 
 const EventList = () => {
     const isLoaded = useSelector(isLoadedStore);
@@ -34,11 +32,9 @@ const EventList = () => {
                 <aside className='aside'>
                     <CreateButton />
                 </aside>
-                <main className='main'>
-                    <Container>
-                        <h1>List</h1>
-                        {isDisplay ? <List list={list} /> : <Loading />}
-                    </Container>
+                <main>
+                    <h1 className='main-title'>List</h1>
+                    {isDisplay ? <List list={list} /> : <Loading />}
                 </main>
             </div>
         </>
