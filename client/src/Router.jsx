@@ -21,12 +21,15 @@ const Router = () => (
             <Route exact path='/About' component={About} />
             <Route exact path='/event' component={Event} />
             <Route exact path='/eventlist' component={EventList} />
+            <Route exact path='/events'>
+                <Redirect to='/eventlist' />
+            </Route>
             <Route exact path='/login' component={Login} />
             <Route exact path='/logout' component={Logout} />
             <Route exact path='/profile' component={Profile} />
             <Route exact path='/user' component={User} />
             <Route exact path='/userlist' component={UserList} />
-            <Route component={Home} />
+            <Route path='/' component={Home} />
         </Switch>
     </BrowserRouter>
 );
