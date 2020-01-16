@@ -16,8 +16,8 @@ const EventMonth = ({ start, list }) => {
 
     return (
         <Row className='month'>
-            <Col lg={2} md={2}>
-                {date}
+            <Col className='month-label' sm={2}>
+                <span>{date}</span>
             </Col>
             <Col>
                 {list.map((entry, key) => (

@@ -6,6 +6,6 @@ module.exports = {
     Data: srcPath + '/data',
     Page: srcPath + '/page',
     Store: srcPath + '/store',
-    Styles: srcPath + '/style',
+    Style: srcPath + '/style',
     Util: srcPath + '/util',
 };

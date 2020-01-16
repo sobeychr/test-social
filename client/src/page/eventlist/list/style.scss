@@ -1,11 +1,132 @@
-.event-entry {
-    &:nth-child(n + 2) {
-        margin-top: 1em;
+@import '~Style/index';
+
+.eventlist {
+    .main-title {
+        text-indent: 1.2em;
     }
 
-    img {
-        float: left;
-        max-height: 200px;
-        max-width: 200px;
+    .month {
+        @include notFirst {
+            border-top: 2px solid #fff;
+            margin-top: 1em;
+            padding-top: 1em;
+        }
+
+        .month-label {
+            background: #303030;
+            border-radius: 0.25rem;
+            font-style: italic;
+            opacity: 0.5;
+            white-space: nowrap;
+
+            @media (max-width: 575px) {
+                margin-bottom: 1em;
+            }
+
+            span {
+                display: block;
+                margin: 1em 0;
+                text-align: center;
+
+                @media (min-width: 576px) {
+                    position: sticky;
+                    top: 1em;
+                }
+            }
+        }
+    }
+
+
+    .event-entry {
+        border: 1px solid transparent;
+        box-shadow: 0 0 3px 3px transparent;
+        transition: box-shadow .2s linear, border-color .2s linear;
+
+        @include notFirst {
+            margin-top: 1em;
+        }
+
+        &:hover {
+            border-color: #999;
+            box-shadow: 0 0 3px 3px #999;
+        }
+
+        .header {
+            align-items: stretch;
+            justify-content: space-between;
+            display: flex;
+
+            .date {
+                color: gray;
+                font-size: 0.5em;
+                font-style: italic;
+                white-space: nowrap;
+            }
+
+            .title {
+                display: inline-block;
+                font-weight: bold;
+                max-height: 2.6em;
+                text-transform: uppercase;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
+
+        .description {
+            overflow: hidden;
+            padding-right: 10px;
+            position: relative;
+
+            @media (max-width: 480px) {
+                font-size: 0.75em;
+            }
+
+            &:not(.expand) {
+                @media (max-width: 480px) {
+                    max-height: 280px;
+                }
+                @media (min-width: 481px) and (max-width: 768px) {
+                    max-height: 330px;
+                }
+                @media (min-width: 769px) {
+                    max-height: 450px;
+                }
+            }
+        }
+
+        .readmore {
+            bottom: 0.3em;
+            opacity: 0.6;
+            position: absolute;
+            right: 0.3em;
+            transition: opacity .2s linear;
+            z-index: 2;
+
+            &:hover {
+                opacity: 1;
+            }
+
+            &.hide {
+                display: none;
+            }
+        }
+
+        .thumbnail {
+            box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            float: left;
+            margin: 0 0.5em 0.5em 0;
+            max-height: 250px;
+            max-width: 50%;
+
+            @media (max-width: 480px) {
+                display: block;
+                float: initial;
+                margin: 0 auto 0.5em auto;
+                max-height: 150px;
+                max-width: 100%;
+            }
+        }
     }
 }
