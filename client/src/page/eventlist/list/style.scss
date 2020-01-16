@@ -36,11 +36,10 @@
         }
     }
 
-
     .event-entry {
         border: 1px solid transparent;
         box-shadow: 0 0 3px 3px transparent;
-        transition: box-shadow .2s linear, border-color .2s linear;
+        transition: box-shadow 0.2s linear, border-color 0.2s linear;
 
         @include notFirst {
             margin-top: 1em;
@@ -75,7 +74,7 @@
 
         .description {
             overflow: hidden;
-            padding-right: 10px;
+            margin-bottom: 2em;
             position: relative;
 
             @media (max-width: 480px) {
@@ -84,6 +83,7 @@
 
             &:not(.expand) {
                 @media (max-width: 480px) {
+                    margin-bottom: 2.5em;
                     max-height: 280px;
                 }
                 @media (min-width: 481px) and (max-width: 768px) {
@@ -96,11 +96,11 @@
         }
 
         .readmore {
-            bottom: 0.3em;
+            bottom: 0.7em;
             opacity: 0.6;
             position: absolute;
-            right: 0.3em;
-            transition: opacity .2s linear;
+            right: 0.7em;
+            transition: opacity 0.2s linear;
             z-index: 2;
 
             &:hover {
