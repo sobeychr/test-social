@@ -3,3 +3,11 @@
         @content;
     }
 }
+
+@mixin multiTransition($props, $duration: .2s, $transition: linear) {
+    $compiled: ();
+    @each $prop in $props {
+        $compiled: append($compiled, #{$prop $duration $transition});
+    }
+    transition: join($compiled, (), comma);
+}
