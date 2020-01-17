@@ -22,6 +22,7 @@ const user = (state = initialState, action) => {
             ...state,
             error: true,
             loading: false,
+            loggedIn: false,
         };
     } else if (type === USER_LOGIN_FETCH) {
         return {
@@ -37,7 +38,7 @@ const user = (state = initialState, action) => {
         const { token, username } = payload;
         return {
             ...state,
-            isLoggedIn: true,
+            loggedIn: true,
             loading: false,
             token,
             username,

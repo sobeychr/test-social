@@ -18,7 +18,7 @@ export const entrySet = payload => ({
     payload,
 });
 
-export const listFetch = { type: EVENT_LIST_FETCH };
+export const listFetch = () => ({ type: EVENT_LIST_FETCH });
 export const listSet = payload => ({
     type: EVENT_LIST_SET,
     payload,

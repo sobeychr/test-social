@@ -5,7 +5,7 @@ import { fetchCookie } from 'Store/saga/user';
 
 const useDelay = false;
 
-function* fetchSecret() {
+export function* fetchSecret() {
     try {
         const json = yield call(get, 'login/secret');
 
@@ -14,20 +14,18 @@ function* fetchSecret() {
             yield put(secretSet(json));
             yield call(fetchCookie, json);
         } else {
-            yield put(secretError);
+            yield put(secretError());
         }
     } catch (err) {
-        yield put(secretError);
+        yield put(secretError());
         console.error('[fetchSecret]-try', err);
     }
 }
 
-function* initApp() {
+export function* initApp() {
     try {
-        yield put(secretFetch);
+        yield put(secretFetch());
     } catch (err) {
         console.error('[initApp]-try', err);
     }
 }
-
-export { fetchSecret, initApp };

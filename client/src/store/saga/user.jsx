@@ -10,12 +10,12 @@ import {
 const useDelay = false;
 const tokenCookie = 'utoken';
 
-function* fetchCookie(action) {
+export function* fetchCookie(action) {
     try {
         const token = getCookie(tokenCookie);
 
         if (token) {
-            yield put(tokenFetch);
+            yield put(tokenFetch());
 
             const { secret } = action;
             const json = yield call(post, 'login/auth', {
@@ -37,7 +37,7 @@ function* fetchCookie(action) {
     }
 }
 
-function* fetchUser(action) {
+export function* fetchUser(action) {
     try {
         const { payload } = action;
         const json = yield call(post, 'login/auth', payload);
@@ -48,20 +48,18 @@ function* fetchUser(action) {
             yield put(loginSet(json));
             setCookie(tokenCookie, token);
         } else {
-            yield put(loginError);
+            yield put(loginError());
         }
     } catch (err) {
-        yield put(loginError);
+        yield put(loginError());
         console.error('[fetchUser]-try', err);
     }
 }
 
-function* removeUser() {
+export function* removeUser() {
     try {
         removeCookie(tokenCookie);
     } catch (err) {
         console.error('[removeUser]-try', err);
     }
 }
-
-export { fetchCookie, fetchUser, removeUser };

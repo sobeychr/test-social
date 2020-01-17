@@ -4,11 +4,11 @@ import { Provider } from 'react-redux';
 
 import Router from './Router';
 import Store from 'Store';
-import { initApp, secretGet } from 'Store/action/app';
+import { initApp } from 'Store/action/app';
 import Style from './style';
 
 const App = () => {
-    Store.dispatch(initApp);
+    Store.dispatch(initApp());
 
     return (
         <Provider store={Store}>

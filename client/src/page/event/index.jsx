@@ -18,7 +18,7 @@ const Event = props => {
     // <ValidateLogin>
     return (
         <>
-            <Header page='Events' />
+            <Header page='Event' />
             <div className='event'>
                 <Link to='/eventlist'>back to list</Link>
                 <br />

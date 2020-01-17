@@ -6,7 +6,7 @@ import {
     USER_TOKEN_FETCH,
 } from 'Store/type';
 
-export const loginError = { type: USER_LOGIN_ERROR };
+export const loginError = () => ({ type: USER_LOGIN_ERROR });
 export const loginFetch = ({ username, password, secret }) => ({
     type: USER_LOGIN_FETCH,
     payload: {
@@ -15,13 +15,13 @@ export const loginFetch = ({ username, password, secret }) => ({
         secret,
     },
 });
-export const loginRemove = { type: USER_LOGIN_REMOVE };
+export const loginRemove = () => ({ type: USER_LOGIN_REMOVE });
 export const loginSet = payload => ({
     type: USER_LOGIN_SET,
     payload,
 });
 
-export const tokenFetch = { type: USER_TOKEN_FETCH };
+export const tokenFetch = () => ({ type: USER_TOKEN_FETCH });
 
 export const getUsername = state => state.user.username;
 export const hasError = state => state.user.error;

@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+// TODO: switch timer to debounce
+import debounce from 'lodash/debounce';
 
 // Bsed on Bootstrap grid - https://react-bootstrap.github.io/layout/grid/
 const displayList = [

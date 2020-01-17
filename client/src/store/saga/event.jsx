@@ -5,7 +5,7 @@ import { entrySet, getEventCache, listSet } from 'Store/action/event';
 
 const useDelay = false;
 
-function* fetchEventEntry(action) {
+export function* fetchEventEntry(action) {
     try {
         const { payload } = action;
         const state = yield select();
@@ -27,7 +27,7 @@ function* fetchEventEntry(action) {
     }
 }
 
-function* fetchEventList() {
+export function* fetchEventList() {
     try {
         const json = yield call(get, 'event/list');
 
@@ -39,5 +39,3 @@ function* fetchEventList() {
         console.error('[fetchEventList]-try', err);
     }
 }
-
-export { fetchEventEntry, fetchEventList };

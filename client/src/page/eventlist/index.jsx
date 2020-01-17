@@ -21,7 +21,7 @@ const EventList = () => {
 
     if (!isLoaded && !isLoading) {
         const dispatch = useDispatch();
-        dispatch(listFetch);
+        dispatch(listFetch());
     }
 
     // <ValidateLogin>
