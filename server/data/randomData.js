@@ -17,9 +17,6 @@ Etiam fermentum eros quis erat lobortis, imperdiet gravida purus laoreet. Etiam 
 Duis eleifend purus neque, eu viverra velit mollis at. Duis eget aliquam justo. Vivamus porttitor, tellus ac sagittis pharetra, lacus erat efficitur urna, at fringilla felis ipsum id tortor. Etiam non turpis vulputate, molestie mauris ac, rhoncus risus. Vestibulum et ligula tincidunt, congue velit at, imperdiet magna. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse commodo ex sapien, vitae euismod nulla blandit nec. Donec lobortis est eu mollis maximus. Phasellus tempus imperdiet blandit. Pellentesque fermentum viverra justo ut vulputate. Maecenas eleifend augue ac purus feugiat, imperdiet placerat lectus lacinia.
 
 Pellentesque vitae lacus eget nibh egestas molestie. Donec rhoncus ultrices feugiat. Quisque condimentum tortor a metus pellentesque, ac facilisis quam suscipit. Nulla sed pharetra sapien. Donec non erat non risus commodo dignissim. Fusce eu diam commodo, mollis tellus dapibus, faucibus ligula. Pellentesque faucibus neque in tincidunt ultricies. Ut a nisi id turpis varius efficitur. Aenean nec urna vel orci lacinia maximus. Curabitur eget mauris fringilla, dapibus diam at, feugiat erat. Nulla odio neque, aliquam eleifend nisi non, maximus dapibus quam. Praesent id placerat lacus. Curabitur tellus ligula, scelerisque eget tristique quis, aliquam nec risus.
-
-
-
 `;
 const strTitle =
     'Donec vitae justo eget sem mattis euismod Suspendisse vulputate rutrum nibh vitae placerat arcu rhoncus quis Curabitur non vulputate justo sit amet dignissim nulla';
@@ -28,7 +25,7 @@ const randomInt = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 const randomStr = (str, min, max) => {
     const len = randomInt(min, max);
     const start = randomInt(0, str.length - len);
-    return str.substring(start, len);
+    return str.substr(start, len);
 };
 
 const getDate = () => {
@@ -36,13 +33,38 @@ const getDate = () => {
     const max = new Date('2021-12-30T23:40:00Z').getTime();
     return randomInt(min, max);
 };
-const getDescription = (min = 12, max = 350) => randomStr(strDesc, min, max);
+
+const getDescLong = (min = 3, max = 950) => randomStr(strDesc, min, max);
+
+const getDescShort = (min = 3, max = 200) => randomStr(strDesc, min, max);
+
+const getName = (min = 3, max = 16) =>
+    randomStr(strTitle, min, max)
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z]/g, '-');
+
+const getTag = () => {
+    const tags = [];
+    const le = randomInt(0, 3);
+    for (let i = 0; i <= le; i++) {
+        tags.push(getName());
+    }
+    return tags;
+};
+
 const getTitle = (min = 3, max = 16) => randomStr(strTitle, min, max);
+
+const getType = () => randomInt(1, 10);
 
 module.exports = {
     getDate,
-    getDescription,
+    getDescLong,
+    getDescShort,
+    getName,
+    getTag,
     getTitle,
+    getType,
     randomInt,
     randomStr,
 };

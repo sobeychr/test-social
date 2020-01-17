@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button, Card } from 'react-bootstrap';
 import { MdExpandLess, MdExpandMore } from 'react-icons/lib/md';
 import pick from 'lodash/pick';
@@ -20,14 +21,7 @@ const ReadMore = ({ isExpand, showExpand, ...props }) => (
     </Button>
 );
 
-const EventEntry = ({
-    id,
-    title,
-    description,
-    windowDisplay,
-    thumbnail,
-    start,
-}) => {
+const EventEntry = ({ id, title, short, windowDisplay, thumbnail, start }) => {
     const [isExpand, setIsExpand] = useState(false);
     const [showExpand, setShowExpand] = useState(false);
     const ref = useRef();
@@ -47,9 +41,13 @@ const EventEntry = ({
     return (
         <Card className='event-entry'>
             <Card.Header className='header'>
-                <span title={title} className='title text-success'>
-                    {`${id} ${title}`}
-                </span>
+                <Link
+                    to={`/event/${id}`}
+                    title={title}
+                    className='title text-success'
+                >
+                    {title}
+                </Link>
                 <span className='date'>{getDate(start)}</span>
             </Card.Header>
             <Card.Body>
@@ -62,7 +60,7 @@ const EventEntry = ({
                         className='thumbnail'
                         src={`./asset/event/${thumbnail}`}
                     />
-                    {description}
+                    {short}
                 </Card.Text>
 
                 <ReadMore

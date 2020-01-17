@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import Router from './Router';
 import Store from 'Store';
 import { initApp, secretGet } from 'Store/action/app';
-import 'style';
+import Style from './style';
 
 const App = () => {
     Store.dispatch(initApp);

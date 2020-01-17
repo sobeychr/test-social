@@ -28,11 +28,11 @@ module.exports = app => {
 
         if (found && (token || username)) {
             next();
-        } else {
-            res.status(401)
-                .send('401: Unauthorized')
-                .end();
         }
+
+        res.status(401)
+            .send('401: Unauthorized')
+            .end();
     });
     app.post('/login/auth', (req, res) => {
         const { body } = req;

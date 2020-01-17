@@ -5,6 +5,8 @@ $md: 768px;
 $lg: 992px;
 $xl: 1200px;
 
+$mobile: 480px;
+
 @mixin above($width) {
     @media (min-width: #{$width}) {
         @content;
@@ -22,72 +24,6 @@ $xl: 1200px;
 }
 @mixin exclude($min, $max) {
     @media (min-width: #{$max - 1}), (max-width: #{$min}) {
-        @content;
-    }
-}
-
-// Includes display
-@mixin onXs {
-    @include below($sm) {
-        @content;
-    }
-}
-@mixin onSm {
-    @include above($sm) {
-        @content;
-    }
-}
-@mixin onMd {
-    @include above($md) {
-        @content;
-    }
-}
-@mixin onLg {
-    @include above($lg) {
-        @content;
-    }
-}
-@mixin onXl {
-    @include above($xl) {
-        @content;
-    }
-}
-
-// Excludes display
-@mixin notOnXs {
-    @include above($sm) {
-        @content;
-    }
-}
-@mixin notOnSm {
-    @include exclude($sm, $md) {
-        @content;
-    }
-}
-
-// Specific display
-@mixin onlyXs {
-    @include below($sm) {
-        @content;
-    }
-}
-@mixin onlySm {
-    @include between($sm, $md) {
-        @content;
-    }
-}
-@mixin onlyMd {
-    @include between($md, $lg) {
-        @content;
-    }
-}
-@mixin onlyLg {
-    @include between($lg, $xl) {
-        @content;
-    }
-}
-@mixin onlyXl {
-    @include above($xl) {
         @content;
     }
 }

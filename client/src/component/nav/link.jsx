@@ -3,7 +3,9 @@ import { Link as BaseLink } from 'react-router-dom';
 
 const NavLink = ({ className, disabled, href, preicon, posticon, title }) => (
     <BaseLink
-        className={`${className} ${disabled ? 'disabled' : ''}`}
+        className={`${className ? className : ''} ${
+            disabled ? 'disabled' : ''
+        }`}
         to={href}
     >
         {preicon}

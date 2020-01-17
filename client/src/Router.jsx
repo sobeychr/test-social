@@ -18,8 +18,8 @@ const Home = () => <Redirect to='/login' />;
 const Router = () => (
     <BrowserRouter>
         <Switch>
-            <Route exact path='/About' component={About} />
-            <Route exact path='/event' component={Event} />
+            <Route exact path='/about' component={About} />
+            <Route exact path='/event/:id' component={Event} />
             <Route exact path='/eventlist' component={EventList} />
             <Route exact path='/events'>
                 <Redirect to='/eventlist' />
