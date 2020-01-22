@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Header from 'Component/header';
-import ValidateLogin from 'Component/validateLogin';
+import withValidateLogin from 'Hoc/validateLogin';
 import {
     isLoadedList,
     isLoading as isLoadingStore,
@@ -24,7 +24,6 @@ const EventList = () => {
         dispatch(listFetch());
     }
 
-    // <ValidateLogin>
     return (
         <>
             <Header page='Events' />
@@ -41,4 +40,4 @@ const EventList = () => {
     );
 };
 
-export default EventList;
+export default withValidateLogin(EventList);

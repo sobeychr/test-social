@@ -4,6 +4,7 @@ module.exports = {
     Asset: rootPath + '/client/asset',
     Component: srcPath + '/component',
     Data: srcPath + '/data',
+    Hoc: srcPath + '/hoc',
     Page: srcPath + '/page',
     Store: srcPath + '/store',
     Style: srcPath + '/style',

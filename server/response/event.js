@@ -1,5 +1,4 @@
 const { json } = require('./contentType');
-const pick = require('lodash/pick');
 
 const {
     getDate,
@@ -59,7 +58,15 @@ module.exports = app => {
         // const now = Math.floor(Date.now() * 0.001);
         const list = events
             // .filter(entry => entry.start > now)
-            .map(entry => pick(entry, keysList));
+            .map(entry => ({
+                id: entry.id,
+                name: entry.name,
+                title: entry.title,
+                short: entry.short,
+                tag: entry.tag,
+                thumbnail: entry.thumbnail,
+                start: entry.start,
+            }));
         json(res, list);
     });
 

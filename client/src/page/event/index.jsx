@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Header from 'Component/header';
-import ValidateLogin from 'Component/validateLogin';
+import withValidateLogin from 'Hoc/validateLogin';
 import { entryFetch, getEvent, hasEventError } from 'Store/action/event';
 import { getParamInt } from 'Util/param';
 
@@ -22,7 +22,6 @@ const Event = props => {
         ? <NotFound />
         : <EventContent {...data} />;
 
-    // <ValidateLogin>
     return (
         <>
             <Header page='Events' />
@@ -38,4 +37,4 @@ const Event = props => {
     );
 };
 
-export default Event;
+export default withValidateLogin(Event);

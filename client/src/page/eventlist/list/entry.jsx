@@ -2,8 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Card } from 'react-bootstrap';
 import { MdExpandLess, MdExpandMore } from 'react-icons/lib/md';
-import pick from 'lodash/pick';
-import withWindowSize from 'Component/windowSize';
+import withWindowSize from 'Hoc/windowSize';
 import { monthToString } from 'Util/date';
 
 const getDate = timestamp => {
@@ -29,10 +28,7 @@ const EventEntry = ({ id, title, short, windowDisplay, thumbnail, start }) => {
     const onClick = () => setIsExpand(!isExpand);
 
     useEffect(() => {
-        const { clientHeight, scrollHeight } = pick(ref.current, [
-            'clientHeight',
-            'scrollHeight',
-        ]);
+        const { clientHeight, scrollHeight } = ref.current;
         if (!isExpand && !isNaN(clientHeight) && !isNaN(scrollHeight)) {
             setShowExpand(clientHeight < scrollHeight);
         }

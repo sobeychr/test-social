@@ -1,11 +1,9 @@
 import React from 'react';
 import Header from 'Component/header';
-import ValidateLogin from 'Component/validateLogin';
+import withValidateLogin from 'Hoc/validateLogin';
 
 const User = () => (
-    <ValidateLogin>
-        <Header page='Users' />
-    </ValidateLogin>
+    <Header page='Users' />
 );
 
-export default User;
+export default withValidateLogin(User);
