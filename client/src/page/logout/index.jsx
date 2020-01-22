@@ -8,7 +8,7 @@ import Style from './style';
 
 const Logout = () => {
     const dispatch = useDispatch();
-    dispatch(loginRemove);
+    dispatch(loginRemove());
 
     return (
         <Modal show centered backdrop='static' title='Logged out'>

@@ -29,10 +29,11 @@ module.exports = app => {
         if (found && (token || username)) {
             next();
         }
-
-        res.status(401)
-            .send('401: Unauthorized')
-            .end();
+        else {
+            res.status(401)
+                .send('401: Unauthorized')
+                .end();
+        }
     });
     app.post('/login/auth', (req, res) => {
         const { body } = req;
@@ -43,12 +44,12 @@ module.exports = app => {
                 token: user.token,
                 username: user.username,
             });
-            return;
         }
-
-        res.status(401)
-            .send('401: Unauthorized')
-            .end();
+        else {
+            res.status(401)
+                .send('401: Unauthorized')
+                .end();
+        }
     });
 
     app.get('/login/secret', (req, res) => {

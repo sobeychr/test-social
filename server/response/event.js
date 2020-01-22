@@ -70,9 +70,10 @@ module.exports = app => {
         if (event) {
             json(res, event);
         }
-
-        res.status(404)
-            .send('404: Not found')
-            .end();
+        else {
+            res.status(404)
+                .send('404: Not found')
+                .end();
+        }
     });
 };
