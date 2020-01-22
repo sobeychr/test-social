@@ -1,4 +1,5 @@
 import {
+    EVENT_ENTRY_ERROR,
     EVENT_ENTRY_FETCH,
     EVENT_ENTRY_SET,
     EVENT_LIST_FETCH,
@@ -9,6 +10,7 @@ import { now } from 'Util/date';
 const initialState = {
     cache: [],
     event: {},
+    eventError: false,
     loading: false,
     list: [],
     listDate: 0,
@@ -31,6 +33,12 @@ const event = (state = initialState, action) => {
         return {
             ...state,
             loading: true,
+        };
+    } else if (type === EVENT_ENTRY_ERROR) {
+        return {
+            ...state,
+            eventError: true,
+            loading: false,
         };
     } else if (type === EVENT_ENTRY_SET) {
         return {

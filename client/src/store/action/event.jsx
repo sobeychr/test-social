@@ -1,5 +1,6 @@
 import get from 'lodash/get';
 import {
+    EVENT_ENTRY_ERROR,
     EVENT_ENTRY_FETCH,
     EVENT_ENTRY_SET,
     EVENT_LIST_FETCH,
@@ -9,6 +10,7 @@ import { now } from 'Util/date';
 
 const delay = 60 * 5 * 1000; // 5 min
 
+export const entryError = () => ({ type: EVENT_ENTRY_ERROR });
 export const entryFetch = id => ({
     type: EVENT_ENTRY_FETCH,
     payload: id,
@@ -26,7 +28,8 @@ export const listSet = payload => ({
 
 export const isLoading = state => state.event.loading;
 export const isLoadedList = state => now() - delay < state.event.listDate;
-// export const isLoadedEvent = id => state => now() - delay < state.event.listDate;
+export const getList = state => state.event.list;
+
 export const getEvent = state => state.event.event;
 export const getEventCache = id => state => {
     const timeCheck = now() - delay;
@@ -42,4 +45,4 @@ export const getEventCache = id => state => {
     });
     return get(cache, 'event', null);
 };
-export const getList = state => state.event.list;
+export const hasEventError = state => state.event.eventError;
