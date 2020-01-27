@@ -37,15 +37,15 @@
     }
 }
 
-.aside {
-    border-bottom: 2px solid #fff;
-    margin: 1.2em 1.2em 0 1.2em;
-    padding-bottom: 1.2em;
-}
-
 button:disabled,
 input:disabled,
 textarea:disabled {
     cursor: wait;
     font-style: italic;
+}
+
+a, button {
+    svg {
+        vertical-align: text-top !important;
+    }
 }

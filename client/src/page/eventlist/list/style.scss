@@ -1,10 +1,6 @@
 @import '~Style/index';
 
-.eventlist {
-    .main-title {
-        text-indent: 1.2em;
-    }
-
+.eventlist .list {
     .month {
         @include notFirst {
             border-top: 2px solid #fff;
@@ -30,7 +26,7 @@
 
                 @include above($md) {
                     position: sticky;
-                    top: 1em;
+                    top: 5.4em;
                 }
             }
         }
@@ -48,6 +44,16 @@
         &:hover {
             border-color: #999;
             box-shadow: 0 0 3px 3px #999;
+        }
+
+        &.filter {
+            .header {
+                font-style: italic;
+                opacity: 0.5;
+            }
+            .card-body {
+                display: none;
+            }
         }
 
         .header {
@@ -76,7 +82,7 @@
 
         .description {
             overflow: hidden;
-            margin-bottom: 2em;
+            margin-bottom: 0;
             position: relative;
 
             @include below($sm) {
@@ -119,7 +125,7 @@
             border-radius: 20px;
             float: left;
             margin: 0 0.5em 0.5em 0;
-            max-height: 250px;
+            max-height: 150px;
             max-width: 50%;
 
             @include below($sm) {

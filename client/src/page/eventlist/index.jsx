@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Header from 'Component/header';
 import withValidateLogin from 'Hoc/validateLogin';
@@ -9,11 +9,12 @@ import {
     listFetch,
 } from 'Store/action/event';
 
-import { CreateButton } from './create';
+import AsideList from './aside';
 import List from './list';
 import { Loading } from './message';
 
 const EventList = () => {
+    const [filter, setFilter] = useState('');
     const isLoaded = useSelector(isLoadedList);
     const isLoading = useSelector(isLoadingStore);
     const isDisplay = isLoaded && !isLoading;
@@ -24,16 +25,15 @@ const EventList = () => {
         dispatch(listFetch());
     }
 
+    console.log('[filter]', filter);
+
     return (
         <>
             <Header page='Events' />
             <div className='eventlist'>
-                <aside className='aside'>
-                    <CreateButton />
-                </aside>
+                <AsideList setFilter={setFilter} />
                 <main>
-                    <h1 className='main-title'>List</h1>
-                    {isDisplay ? <List list={list} /> : <Loading />}
+                    {isDisplay ? <List filter={filter} list={list} /> : <Loading />}
                 </main>
             </div>
         </>

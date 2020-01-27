@@ -7,7 +7,7 @@ import Style from './style';
 
 const length = 10;
 
-const List = ({ list }) => {
+const List = ({ filter, list }) => {
     const [start, setStart] = useState(0);
     const cutList = list.slice(start, Math.min(start + length, list.length));
     const split = splitByMonth(cutList);
@@ -15,7 +15,7 @@ const List = ({ list }) => {
     return (
         <Container className='list'>
             {split.map((entry, key) => (
-                <EventMonth key={key} {...entry} />
+                <EventMonth key={key} filter={filter} {...entry} />
             ))}
         </Container>
     );

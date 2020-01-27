@@ -9,7 +9,7 @@ const getDate = timestamp => {
     return monthToString(d.getUTCMonth(), true) + ' ' + d.getUTCFullYear();
 };
 
-const EventMonth = ({ start, list }) => {
+const EventMonth = ({ start, filter, list }) => {
     const [isCollapse, setCollapse] = useState(false);
 
     const date = getDate(start);
@@ -21,7 +21,7 @@ const EventMonth = ({ start, list }) => {
             </Col>
             <Col>
                 {list.map((entry, key) => (
-                    <EventEntry key={key} {...entry} />
+                    <EventEntry key={key} filter={filter} {...entry} />
                 ))}
             </Col>
         </Row>

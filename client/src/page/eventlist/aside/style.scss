@@ -1,0 +1,19 @@
+.eventlist .aside-list {
+    background: #222;
+    border-bottom: 2px solid #fff;
+    display: flex;
+    margin-bottom: 0.9em;
+    justify-content: space-between;
+    padding: 0.9em;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+
+    .create-button svg {
+        margin-right: 0.5em;
+    }
+
+    .search-event {
+        margin: 0;
+    }
+}
