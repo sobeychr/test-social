@@ -12,8 +12,6 @@ const {
 } = require('./../data/randomData');
 const events = require('./../data/events.json');
 
-const keysList = ['id', 'name', 'title', 'short', 'tag', 'thumbnail', 'start'];
-
 const sortEvent = (a, b) => {
     if (a.start !== b.start) {
         return a.start - b.start;
@@ -76,8 +74,7 @@ module.exports = app => {
 
         if (event) {
             json(res, event);
-        }
-        else {
+        } else {
             res.status(404)
                 .send('404: Not found')
                 .end();

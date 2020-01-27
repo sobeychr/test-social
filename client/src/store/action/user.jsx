@@ -1,6 +1,7 @@
 import {
     USER_LOGIN_ERROR,
     USER_LOGIN_FETCH,
+    USER_LOGIN_OUT,
     USER_LOGIN_REMOVE,
     USER_LOGIN_SET,
     USER_TOKEN_FETCH,
@@ -15,6 +16,7 @@ export const loginFetch = ({ username, password, secret }) => ({
         secret,
     },
 });
+export const loginOut = () => ({ type: USER_LOGIN_OUT });
 export const loginRemove = () => ({ type: USER_LOGIN_REMOVE });
 export const loginSet = payload => ({
     type: USER_LOGIN_SET,

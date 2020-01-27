@@ -2,7 +2,7 @@ import { APP_SECRET_ERROR, APP_SECRET_FETCH, APP_SECRET_SET } from 'Store/type';
 
 const initialState = {
     error: false,
-    loading: false,
+    loading: true,
     secret: '',
     time: 0,
 };

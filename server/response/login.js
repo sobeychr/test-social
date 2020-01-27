@@ -28,8 +28,7 @@ module.exports = app => {
 
         if (found && (token || username)) {
             next();
-        }
-        else {
+        } else {
             res.status(401)
                 .send('401: Unauthorized')
                 .end();
@@ -44,8 +43,7 @@ module.exports = app => {
                 token: user.token,
                 username: user.username,
             });
-        }
-        else {
+        } else {
             res.status(401)
                 .send('401: Unauthorized')
                 .end();

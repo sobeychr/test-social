@@ -18,9 +18,7 @@ const Event = props => {
         dispatch(entryFetch(id));
     }
 
-    const body = hasError
-        ? <NotFound />
-        : <EventContent {...data} />;
+    const body = hasError ? <NotFound /> : <EventContent {...data} />;
 
     return (
         <>
@@ -29,9 +27,7 @@ const Event = props => {
                 <aside className='aside'>
                     <BackToList />
                 </aside>
-                <main>
-                    {body}
-                </main>
+                <main>{body}</main>
             </div>
         </>
     );

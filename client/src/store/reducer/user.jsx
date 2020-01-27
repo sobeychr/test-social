@@ -1,6 +1,7 @@
 import {
     USER_LOGIN_ERROR,
     USER_LOGIN_FETCH,
+    USER_LOGIN_OUT,
     USER_LOGIN_REMOVE,
     USER_LOGIN_SET,
     USER_TOKEN_FETCH,
@@ -8,7 +9,7 @@ import {
 
 const initialState = {
     error: false,
-    loading: false,
+    loading: true,
     loggedIn: false,
     token: '',
     username: '',
@@ -33,6 +34,7 @@ const user = (state = initialState, action) => {
     } else if (type === USER_LOGIN_REMOVE) {
         return {
             ...initialState,
+            loading: false,
         };
     } else if (type === USER_LOGIN_SET) {
         const { token, username } = payload;
@@ -42,6 +44,12 @@ const user = (state = initialState, action) => {
             loading: false,
             token,
             username,
+        };
+    } else if (type === USER_LOGIN_OUT) {
+        return {
+            ...state,
+            loggedIn: false,
+            loading: false,
         };
     } else if (type === USER_TOKEN_FETCH) {
         return {

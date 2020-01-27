@@ -4,9 +4,12 @@ import { Redirect } from 'react-router';
 import Modal from 'Component/modal';
 import {
     hasError as hasErrorStore,
-    isLoading as isLoadingStore,
+    isLoading as isLoadingApp,
 } from 'Store/action/app';
-import { isLoggedIn as isLoggedInStore } from 'Store/action/user';
+import {
+    isLoggedIn as isLoggedInStore,
+    isLoading as isLoadingUser,
+} from 'Store/action/user';
 
 import LoginForm from './form';
 import { AppError, AppLoading } from './message';
@@ -14,7 +17,9 @@ import Style from './style';
 
 const Login = () => {
     const isLoggedIn = useSelector(isLoggedInStore);
-    const isLoading = useSelector(isLoadingStore);
+    const isLoadApp = useSelector(isLoadingApp);
+    const isLoadUser = useSelector(isLoadingUser);
+    const isLoading = isLoadApp;
     const hasError = useSelector(hasErrorStore);
 
     if (isLoggedIn) {

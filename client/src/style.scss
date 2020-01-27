@@ -1,5 +1,16 @@
+@import '~Style/index';
+
 #app {
     min-width: 280px;
+
+    .loading-app {
+        margin: 10% auto 0 auto;
+        text-align: center;
+
+        @include below($mobile) {
+            font-size: 1.5rem;
+        }
+    }
 }
 
 @keyframes animLoading {

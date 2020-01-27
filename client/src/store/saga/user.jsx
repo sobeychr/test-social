@@ -1,6 +1,6 @@
 import { call, delay, put } from 'redux-saga/effects';
 import { post } from 'Store/api';
-import { loginError, loginSet, tokenFetch } from 'Store/action/user';
+import { loginError, loginOut, loginSet, tokenFetch } from 'Store/action/user';
 import {
     get as getCookie,
     remove as removeCookie,
@@ -30,7 +30,11 @@ export function* fetchCookie(action) {
                         username: json.username,
                     }),
                 );
+            } else {
+                yield put(loginOut());
             }
+        } else {
+            yield put(loginOut());
         }
     } catch (err) {
         console.error('[fetchCookie]-try', err);

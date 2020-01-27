@@ -3,7 +3,12 @@ import { Button } from 'react-bootstrap';
 import FaAngleLeft from 'react-icons/lib/fa/angle-left';
 
 export const BackToList = () => (
-    <Button className='backtolist' href='/eventlist' size='sm' variant='primary'>
+    <Button
+        className='backtolist'
+        href='/eventlist'
+        size='sm'
+        variant='primary'
+    >
         <FaAngleLeft />
         Back to List
     </Button>

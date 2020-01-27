@@ -1,7 +1,12 @@
 import { useSelector } from 'react-redux';
 import { call, delay, put, select } from 'redux-saga/effects';
 import { get } from 'Store/api';
-import { entryError, entrySet, getEventCache, listSet } from 'Store/action/event';
+import {
+    entryError,
+    entrySet,
+    getEventCache,
+    listSet,
+} from 'Store/action/event';
 
 const useDelay = false;
 
@@ -20,8 +25,7 @@ export function* fetchEventEntry(action) {
             if (json) {
                 if (useDelay) yield delay(3500);
                 yield put(entrySet(json));
-            }
-            else {
+            } else {
                 yield put(entryError());
             }
         }
