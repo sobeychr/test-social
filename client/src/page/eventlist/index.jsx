@@ -14,18 +14,16 @@ import List from './list';
 import { Loading } from './message';
 
 const EventList = () => {
-    const [filter, setFilter] = useState('');
+    const dispatch = useDispatch();
     const isLoaded = useSelector(isLoadedList);
     const isLoading = useSelector(isLoadingStore);
     const isDisplay = isLoaded && !isLoading;
+    const [filter, setFilter] = useState('');
     const list = useSelector(getList);
 
     if (!isLoaded && !isLoading) {
-        const dispatch = useDispatch();
         dispatch(listFetch());
     }
-
-    console.log('[filter]', filter);
 
     return (
         <>
@@ -33,7 +31,11 @@ const EventList = () => {
             <div className='eventlist'>
                 <AsideList setFilter={setFilter} />
                 <main>
-                    {isDisplay ? <List filter={filter} list={list} /> : <Loading />}
+                    {isDisplay ? (
+                        <List filter={filter} list={list} />
+                    ) : (
+                        <Loading />
+                    )}
                 </main>
             </div>
         </>

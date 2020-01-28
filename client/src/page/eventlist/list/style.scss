@@ -1,6 +1,8 @@
 @import '~Style/index';
 
 .eventlist .list {
+    margin-bottom: 2em;
+
     .month {
         @include notFirst {
             border-top: 2px solid #fff;
@@ -35,7 +37,7 @@
     .event-entry {
         border: 1px solid transparent;
         box-shadow: 0 0 3px 3px transparent;
-        @include multiTransition([box-shadow, border-color]);
+        @include multiTransition([box-shadow, border-color, opacity]);
 
         @include notFirst {
             margin-top: 1em;
@@ -47,19 +49,22 @@
         }
 
         &.filter {
+            opacity: 0.5;
+
             .header {
                 font-style: italic;
-                opacity: 0.5;
+                padding: 3px 1.25rem;
             }
-            .card-body {
+            .body {
                 display: none;
             }
         }
 
         .header {
             align-items: stretch;
-            justify-content: space-between;
             display: flex;
+            justify-content: space-between;
+            transition: padding 0.2s linear;
 
             .date {
                 color: gray;
@@ -81,7 +86,6 @@
         }
 
         .description {
-            overflow: hidden;
             margin-bottom: 0;
             position: relative;
 
@@ -100,23 +104,6 @@
                 @include above($md) {
                     max-height: 450px;
                 }
-            }
-        }
-
-        .readmore {
-            bottom: 0.7em;
-            opacity: 0.6;
-            position: absolute;
-            right: 0.7em;
-            transition: opacity 0.2s linear;
-            z-index: 2;
-
-            &:hover {
-                opacity: 1;
-            }
-
-            &.hide {
-                display: none;
             }
         }
 

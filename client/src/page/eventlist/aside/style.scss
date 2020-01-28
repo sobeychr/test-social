@@ -1,3 +1,5 @@
+@import '~Style/index';
+
 .eventlist .aside-list {
     background: #222;
     border-bottom: 2px solid #fff;
@@ -9,11 +11,37 @@
     top: 0;
     z-index: 2;
 
-    .create-button svg {
-        margin-right: 0.5em;
+    .aside-list-block {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+
+    .create-button {
+        span {
+            @include below($sm) {
+                display: none;
+            }
+        }
+        svg {
+            @include above($sm) {
+                margin-right: 0.5em;
+            }
+        }
     }
 
     .search-event {
-        margin: 0;
+        margin: 0 0 0 1em;
+
+        .search-event-input {
+            @include below($sm) {
+                @include multiTransition([flex-grow, padding], 0.35s);
+
+                &:not(:focus) {
+                    flex-grow: 0;
+                    padding: 0;
+                }
+            }
+        }
     }
 }

@@ -9,7 +9,7 @@ const getDate = timestamp => {
     return monthToString(d.getUTCMonth(), true) + ' ' + d.getUTCFullYear();
 };
 
-const EventMonth = ({ start, filter, list }) => {
+const EventMonth = ({ filter, list, start }) => {
     const [isCollapse, setCollapse] = useState(false);
 
     const date = getDate(start);

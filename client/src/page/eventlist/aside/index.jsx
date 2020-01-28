@@ -1,13 +1,15 @@
 import React from 'react';
 
 import CreateButton from './create';
-import SearchEvent from './search';
+import FilterEvent from './filter';
 import style from './style';
 
-const AsideList = ({setFilter}) => (
+const AsideList = ({ setFilter }) => (
     <aside className='aside aside-list'>
-        <CreateButton />
-        <SearchEvent setFilter={setFilter} />
+        <div className='aside-list-block'>
+            <CreateButton />
+            <FilterEvent setFilter={setFilter} />
+        </div>
     </aside>
 );
 

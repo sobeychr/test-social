@@ -5,7 +5,7 @@ import FaCalendarPlusO from 'react-icons/lib/fa/calendar-plus-o';
 const CreateButton = () => (
     <Button className='create-button' size='sm' variant='primary'>
         <FaCalendarPlusO />
-        Create new event
+        <span>Create new event</span>
     </Button>
 );
 
