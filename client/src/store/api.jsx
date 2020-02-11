@@ -1,5 +1,3 @@
-import isEmpty from 'lodash/fp/isEmpty';
-
 const delay = 2500; // timeout in milliseconds
 const host = 'http://localhost:3300/';
 const headers = {

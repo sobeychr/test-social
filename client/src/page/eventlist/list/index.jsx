@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
+import { listFetch } from 'Store/action/event';
 
 import EventMonth from './month';
 import { splitByMonth } from './helper';
 import Style from './style';
 
-const length = 10;
-
 const List = ({ filter, list }) => {
-    const [start, setStart] = useState(0);
-    const cutList = list.slice(start, Math.min(start + length, list.length));
-    const split = splitByMonth(cutList);
+    const split = splitByMonth(list);
 
     return (
         <Container className='list'>

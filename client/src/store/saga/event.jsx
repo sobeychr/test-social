@@ -17,6 +17,7 @@ export function* fetchEventEntry(action) {
         const cache = getEventCache(payload)(state);
 
         if (cache) {
+            console.log('[SAGA]', 'fetchEventEntry', 'from cache');
             if (useDelay) yield delay(3500);
             yield put(entrySet(cache));
         } else {
@@ -24,6 +25,7 @@ export function* fetchEventEntry(action) {
 
             if (json) {
                 if (useDelay) yield delay(3500);
+                console.log('[SAGA]', 'fetchEventEntry', 'from API');
                 yield put(entrySet(json));
             } else {
                 yield put(entryError());
@@ -35,9 +37,10 @@ export function* fetchEventEntry(action) {
     }
 }
 
-export function* fetchEventList() {
+export function* fetchEventList(action) {
     try {
-        const json = yield call(get, 'event/list');
+        const { payload } = action;
+        const json = yield call(get, `event/list/${payload}/20`);
 
         if (json) {
             if (useDelay) yield delay(3500);

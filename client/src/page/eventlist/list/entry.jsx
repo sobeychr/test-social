@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Button, Card } from 'react-bootstrap';
+import { Badge, Card } from 'react-bootstrap';
 import { MdExpandLess, MdExpandMore } from 'react-icons/lib/md';
 import { monthToString } from 'Util/date';
 
@@ -10,7 +10,8 @@ const getDate = timestamp => {
     return monthToString(d.getUTCMonth(), true) + ' ' + d.getUTCDate();
 };
 
-const TagEntry = ({label}) => <Button className='tag-entry' size='sm' variant='primary'>{label}</Button>
+// const TagEntry = ({label}) => <Button className='tag-entry' size='sm' variant='primary'>{label}</Button>
+const TagEntry = ({label}) => <Badge className='tag-entry' size='sm' variant='primary'>{label}</Badge>
 
 const EventEntry = ({ id, title, short, filter, tag, thumbnail, start }) => {
     const [isExpand, setIsExpand] = useState(false);

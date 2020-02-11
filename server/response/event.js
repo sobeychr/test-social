@@ -62,10 +62,12 @@ module.exports = app => {
         json(res, list);
     });
 
-    app.get('/event/list', (req, res) => {
-        // const now = Math.floor(Date.now() * 0.001);
-        // .filter(entry => entry.start > now)
-        const list = filterEventKeys(events);
+    app.get('/event/list/:date/:limit', (req, res) => {
+        const date = parseInt(req.params.date, 10);
+        const limit = parseInt(req.params.limit, 10);
+        const list = filterEventKeys(events)
+            .filter(entry => entry.start >= date)
+            .slice(0, limit);
         json(res, list);
     });
 

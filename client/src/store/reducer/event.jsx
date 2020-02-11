@@ -13,12 +13,6 @@ const initialState = {
     eventError: false,
     loading: false,
     list: [],
-    listDate: 0,
-    search: {
-        label: '',
-        list: [],
-        tag: '',
-    },
 };
 
 // cache = [ {event, date} ];
@@ -53,11 +47,11 @@ const event = (state = initialState, action) => {
             cache: createEntryCache(state, payload),
         };
     } else if (type === EVENT_LIST_SET) {
+        const newList = state.list.concat(payload);
         return {
             ...state,
             loading: false,
-            list: payload,
-            listDate: now(),
+            list: newList,
         };
     } else {
         return state;

@@ -20,27 +20,23 @@ export const entrySet = payload => ({
     payload,
 });
 
-export const listFetch = () => ({ type: EVENT_LIST_FETCH });
+export const listFetch = payload => ({
+    type: EVENT_LIST_FETCH,
+    payload,
+});
 export const listSet = payload => ({
     type: EVENT_LIST_SET,
     payload,
 });
 
 export const isLoading = state => state.event.loading;
-export const isLoadedList = state => now() - delay < state.event.listDate;
+export const isLoadedList = state => state.event.list.length > 0;
 export const getList = state => state.event.list;
 
 export const getEvent = state => state.event.event;
 export const getEventCache = id => state => {
     const timeCheck = now() - delay;
     const cache = state.event.cache.find(entry => {
-        console.log('[getEventCache]', {
-            id,
-            timeCheck,
-            eventId: entry.event.id,
-            entryDate: entry.date,
-        });
-
         return entry.event.id === id && timeCheck < entry.date;
     });
     return get(cache, 'event', null);
