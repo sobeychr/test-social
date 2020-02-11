@@ -105,6 +105,22 @@
                     max-height: 450px;
                 }
             }
+
+            .tag {
+                display: block;
+
+                @include below($sm) {
+                    text-align: center;
+                }
+
+                .tag-entry {
+                    margin-bottom: 0.5em;
+
+                    @include notFirst {
+                        margin-left: 0.5em;
+                    }
+                }
+            }
         }
 
         .thumbnail {

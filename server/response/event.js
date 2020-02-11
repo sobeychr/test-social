@@ -12,6 +12,16 @@ const {
 } = require('./../data/randomData');
 const events = require('./../data/events.json');
 
+const filterEventKeys = list => list.map(entry => ({
+    id: entry.id,
+    name: entry.name,
+    title: entry.title,
+    short: entry.short,
+    tag: entry.tag,
+    thumbnail: entry.thumbnail,
+    start: entry.start,
+}));
+
 const sortEvent = (a, b) => {
     if (a.start !== b.start) {
         return a.start - b.start;
@@ -54,19 +64,42 @@ module.exports = app => {
 
     app.get('/event/list', (req, res) => {
         // const now = Math.floor(Date.now() * 0.001);
-        const list = events
-            // .filter(entry => entry.start > now)
-            .map(entry => ({
-                id: entry.id,
-                name: entry.name,
-                title: entry.title,
-                short: entry.short,
-                tag: entry.tag,
-                thumbnail: entry.thumbnail,
-                start: entry.start,
-            }));
+        // .filter(entry => entry.start > now)
+        const list = filterEventKeys(events);
         json(res, list);
     });
+
+    /*
+    app.get('/event/search', (req, res) => {
+        const { body: {
+            label,
+            tag,
+        } } = req;
+
+        if(!label && !tag) {
+            res.status(400)
+                .send('400: Bad Request')
+                .end();
+        }
+
+        const logs = [];
+
+        let list = events;
+        logs.push(`original events list length: ${list.length}`);
+
+        if(label) {
+            list = list.filter(entry => (
+                entry.title.toLowerCase().includes(label)
+                || entry.short.toLowerCase().includes(label)
+                || entry.description.toLowerCase().includes(label)
+            ));
+            logs.push(`after filtered by label: ${list.length}`);
+        }
+
+        list = filterEventKeys(events);
+        json(res, list);
+    });
+    */
 
     app.get('/event/:id', (req, res) => {
         const id = parseInt(req.params.id);

@@ -20,7 +20,7 @@ const FilterEvent = ({ setFilter }) => {
     };
 
     return (
-        <Form className='search-event'>
+        <Form className='filter-event'>
             <InputGroup>
                 <InputGroup.Prepend>
                     <Button onClick={onClick}>
@@ -28,7 +28,7 @@ const FilterEvent = ({ setFilter }) => {
                     </Button>
                 </InputGroup.Prepend>
                 <Form.Control
-                    className='sm-2 search-event-input'
+                    className='sm-2 filter-event-input'
                     ref={ref}
                     onChange={onChange}
                     placeholder='Filter events'

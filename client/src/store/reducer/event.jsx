@@ -14,6 +14,11 @@ const initialState = {
     loading: false,
     list: [],
     listDate: 0,
+    search: {
+        label: '',
+        list: [],
+        tag: '',
+    },
 };
 
 // cache = [ {event, date} ];

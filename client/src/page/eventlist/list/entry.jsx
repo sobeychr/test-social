@@ -10,7 +10,9 @@ const getDate = timestamp => {
     return monthToString(d.getUTCMonth(), true) + ' ' + d.getUTCDate();
 };
 
-const EventEntry = ({ id, title, short, filter, thumbnail, start }) => {
+const TagEntry = ({label}) => <Button className='tag-entry' size='sm' variant='primary'>{label}</Button>
+
+const EventEntry = ({ id, title, short, filter, tag, thumbnail, start }) => {
     const [isExpand, setIsExpand] = useState(false);
     const isFiltered = !title.includes(filter) && !short.includes(filter);
 
@@ -29,7 +31,12 @@ const EventEntry = ({ id, title, short, filter, thumbnail, start }) => {
                         className='thumbnail'
                         src={`./asset/event/${thumbnail}`}
                     />
-                    {short}
+                    <span className='tag'>
+                        {tag.map((entry, key) => <TagEntry key={key} label={entry}/>)}
+                    </span>
+                    <span className='description-text'>
+                        {short}
+                    </span>
                 </Card.Text>
             </Card.Body>
         </Card>

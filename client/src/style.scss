@@ -13,6 +13,13 @@
     }
 }
 
+.aside {
+    background: #222;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 0.9em;
+    padding: 0.9em;
+}
+
 @keyframes animLoading {
     0% {
         content: '.';

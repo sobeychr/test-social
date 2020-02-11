@@ -7,7 +7,7 @@ const methods = ['GET', 'OPTIONS', 'POST'];
 module.exports = app => {
     app.use(
         responseTime((req, res, time) => {
-            const { method, url } = req;
+            const { body, method, url } = req;
             console.log(
                 '>>'.yellow,
                 'responded in'.white,
@@ -15,6 +15,7 @@ module.exports = app => {
                 `${res.statusCode}`.magenta,
                 `${method}`.green,
                 `${url}`.magenta,
+                body,
             );
         }),
     );
