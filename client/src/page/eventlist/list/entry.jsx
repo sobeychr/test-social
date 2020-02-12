@@ -18,7 +18,7 @@ const EventEntry = ({ id, title, short, filter, tag, thumbnail, start }) => {
     const isFiltered = !title.includes(filter) && !short.includes(filter);
 
     return (
-        <Card className={`event-entry ${isFiltered ? 'filter' : ''}`}>
+        <Card as='article' className={`event-entry ${isFiltered ? 'filter' : ''}`}>
             <Card.Header className='header'>
                 <Link to={`/event/${id}`} className='title text-success'>
                     {title}

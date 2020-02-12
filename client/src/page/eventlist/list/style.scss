@@ -1,5 +1,10 @@
 @import '~Style/index';
 
+@keyframes animMonthList {
+    from { height: auto; }
+    to { height: 0;  }
+}
+
 .eventlist .list {
     margin-bottom: 2em;
 
@@ -25,7 +30,8 @@
                 margin-bottom: 1em;
             }
 
-            span {
+            .month-label-title {
+                cursor: pointer;
                 display: block;
                 margin: 1em 0;
                 text-align: center;
@@ -35,6 +41,9 @@
                     top: 5.4em;
                 }
             }
+        }
+
+        .month-list {
         }
     }
 
