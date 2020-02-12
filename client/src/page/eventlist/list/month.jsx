@@ -19,10 +19,15 @@ const EventMonth = ({ filter, list, start }) => {
 
     return (
         <Row as='section' className='month'>
-            <Col className='month-label' sm={2}>
-                <Button as='span' className='month-label-title' variant='outline-light' onClick={onClick}>
+            <Col className='month-label' sm='2'>
+                <Button
+                    as='span'
+                    className='month-label-title'
+                    variant='outline-light'
+                    onClick={onClick}
+                >
                     {date}
-                    <br/>
+                    <br />
                     {list.length} events
                 </Button>
             </Col>

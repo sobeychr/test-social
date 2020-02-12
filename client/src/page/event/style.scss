@@ -1,0 +1,54 @@
+@import '~Style/index';
+
+.event {
+    .event-title {
+        display: flex;
+        margin-bottom: 1.3em;
+
+        .thumbnail-container {
+            @include above($sm) {
+                margin-right: 1em;
+            }
+            @include below($sm) {
+                width: 100%;
+            }
+
+            .thumbnail-img {
+                border-radius: 20px;
+                box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.5);
+                display: block;
+                max-height: 350px;
+                max-width: 350px;
+
+                @include below($sm) {
+                    margin: 0 auto;
+                }
+            }
+        }
+
+        .title-container {
+            flex-grow: 1;
+
+            @include below($sm) {
+                text-align: center;
+            }
+
+            .tag {
+                display: block;
+
+                @include below($sm) {
+                    text-align: center;
+                }
+
+                .tag-entry {
+                    margin-bottom: 0.5em;
+                    padding: 0.5em 0.7em;
+
+                    @include notFirst {
+                        margin-left: 0.5em;
+                    }
+                }
+            }
+        }
+    }
+}

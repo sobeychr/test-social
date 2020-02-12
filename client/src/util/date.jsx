@@ -20,10 +20,8 @@ export const monthToString = (month, cut = false) => {
     return cut ? str.substring(0, Math.min(str.length, 3)) : str;
 };
 
-export const now = (isJs = false) => (isJs
-    ? Date.now()
-    : Math.floor(Date.now() * 0.001)
-);
+export const now = (isJs = false) =>
+    isJs ? Date.now() : Math.floor(Date.now() * 0.001);
 
 export const tsToRoundMonth = timestamp => {
     const d = new Date(timestamp);

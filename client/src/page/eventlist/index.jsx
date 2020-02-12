@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 import last from 'lodash/last';
 import Header from 'Component/header';
 import withValidateLogin from 'Hoc/validateLogin';
@@ -16,8 +16,18 @@ import AsideList from './aside';
 import List from './list';
 import { Loading } from './message';
 
-
-const LoadMore = ({onClick}) => <Button className='loadmore' variant='outline-primary' block size='lg' onClick={onClick}> Load more </Button>;
+const LoadMore = ({ onClick }) => (
+    <Button
+        className='loadmore'
+        variant='outline-primary'
+        block
+        size='lg'
+        onClick={onClick}
+    >
+        {' '}
+        Load more{' '}
+    </Button>
+);
 
 const EventList = () => {
     const dispatch = useDispatch();
@@ -35,7 +45,7 @@ const EventList = () => {
 
     if (!isLoaded && !isLoading) {
         // dispatch(listFetch(now()));
-        const date = Math.floor(new Date('2019-12-01').getTime() * .001);
+        const date = Math.floor(new Date('2019-12-01').getTime() * 0.001);
         dispatch(listFetch(date));
     }
 
@@ -44,16 +54,16 @@ const EventList = () => {
             <Header page='Events' />
             <div className='eventlist'>
                 <AsideList setFilter={setFilter} />
-                <main>
+                <Container as='main'>
                     {isDisplay ? (
                         <>
                             <List filter={filter} list={list} />
-                            <LoadMore onClick={onClick}/>
+                            <LoadMore onClick={onClick} />
                         </>
                     ) : (
                         <Loading />
                     )}
-                </main>
+                </Container>
             </div>
         </>
     );

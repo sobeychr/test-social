@@ -10,11 +10,11 @@ const List = ({ filter, list }) => {
     const split = splitByMonth(list);
 
     return (
-        <Container className='list'>
+        <div className='list'>
             {split.map((entry, key) => (
                 <EventMonth key={key} filter={filter} {...entry} />
             ))}
-        </Container>
+        </div>
     );
 };
 

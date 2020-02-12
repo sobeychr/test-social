@@ -1,12 +1,14 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Container } from 'react-bootstrap';
 import Header from 'Component/header';
 import withValidateLogin from 'Hoc/validateLogin';
 import { entryFetch, getEvent, hasEventError } from 'Store/action/event';
 import { getParamInt } from 'Util/param';
 
 import EventContent from './content';
-import { BackToList, NotFound } from './message';
+import { BackToList, Loading, NotFound } from './message';
+import Style from './style';
 
 const Event = props => {
     const id = getParamInt(props, 'id');
@@ -16,6 +18,7 @@ const Event = props => {
     if (!data.id || data.id !== id) {
         const dispatch = useDispatch();
         dispatch(entryFetch(id));
+        return <Loading />;
     }
 
     const body = hasError ? <NotFound /> : <EventContent {...data} />;
@@ -27,7 +30,7 @@ const Event = props => {
                 <aside className='aside'>
                     <BackToList />
                 </aside>
-                <main>{body}</main>
+                <Container as='main'>{body}</Container>
             </div>
         </>
     );

@@ -8,7 +8,7 @@ export const splitByMonth = entries => {
     entries.map(entry => {
         const tsMonth = tsToRoundMonth(entry.start * 1000);
 
-        if(!last(list) || last(list).start !== tsMonth) {
+        if (!last(list) || last(list).start !== tsMonth) {
             list.push({
                 start: tsMonth,
                 list: [],

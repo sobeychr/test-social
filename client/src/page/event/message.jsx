@@ -16,6 +16,8 @@ export const BackToList = () => (
     </Button>
 );
 
+export const Loading = () => <p className='loading'>loading</p>;
+
 export const NotFound = () => (
     <p className='text-danger'>Error - event not found</p>
 );

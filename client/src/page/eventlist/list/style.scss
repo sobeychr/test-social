@@ -1,8 +1,12 @@
 @import '~Style/index';
 
 @keyframes animMonthList {
-    from { height: auto; }
-    to { height: 0;  }
+    from {
+        height: auto;
+    }
+    to {
+        height: 0;
+    }
 }
 
 .eventlist .list {

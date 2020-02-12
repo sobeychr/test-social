@@ -12,15 +12,16 @@ const {
 } = require('./../data/randomData');
 const events = require('./../data/events.json');
 
-const filterEventKeys = list => list.map(entry => ({
-    id: entry.id,
-    name: entry.name,
-    title: entry.title,
-    short: entry.short,
-    tag: entry.tag,
-    thumbnail: entry.thumbnail,
-    start: entry.start,
-}));
+const filterEventKeys = list =>
+    list.map(entry => ({
+        id: entry.id,
+        name: entry.name,
+        title: entry.title,
+        short: entry.short,
+        tag: entry.tag,
+        thumbnail: entry.thumbnail,
+        start: entry.start,
+    }));
 
 const sortEvent = (a, b) => {
     if (a.start !== b.start) {
