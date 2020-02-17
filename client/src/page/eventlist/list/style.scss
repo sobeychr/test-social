@@ -34,13 +34,17 @@
                 margin-bottom: 1em;
             }
 
+            @include between($sm, $md) {
+                padding: 0;
+            }
+
             .month-label-title {
                 cursor: pointer;
                 display: block;
                 margin: 1em 0;
                 text-align: center;
 
-                @include above($md) {
+                @include above($sm) {
                     position: sticky;
                     top: 5.4em;
                 }

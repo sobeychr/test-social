@@ -57,3 +57,7 @@ button {
         vertical-align: text-top !important;
     }
 }
+
+.container {
+    transition: max-width 0.2s ease-in-out;
+}

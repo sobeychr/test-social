@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-import { TagEntry } from 'Component/event';
+import { TagContainer } from 'Component/event';
 
 const EventContent = props => {
     const {
@@ -17,25 +17,21 @@ const EventContent = props => {
     return (
         <>
             <Row as='section' className='event-title'>
-                <div className='thumbnail-container'>
+                <Col sm='5'>
                     <img
                         alt={title}
                         className='thumbnail-img'
                         src={`/asset/event/${thumbnail}`}
                     />
-                </div>
-                <div className='title-container'>
+                </Col>
+                <Col className='title-container' sm='7'>
                     <h1 className='title-container-text text-success'>
                         {title}
                     </h1>
-                    <span className='tag'>
-                        {tag.map((entry, key) => (
-                            <TagEntry key={key} label={entry} />
-                        ))}
-                    </span>
-                </div>
+                    <TagContainer tags={tag} />
+                </Col>
             </Row>
-            <Row as='section' className='event-description'>
+            <Row as='section' className='event-description' noGutters>
                 <p>{description}</p>
             </Row>
         </>

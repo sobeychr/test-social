@@ -2,33 +2,23 @@
 
 .event {
     .event-title {
-        display: flex;
         margin-bottom: 1.3em;
 
-        .thumbnail-container {
-            @include above($sm) {
-                margin-right: 1em;
-            }
+        .thumbnail-img {
+            border-radius: 20px;
+            box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.5);
+            display: block;
+            margin: 0 0 0 auto;
+            max-height: 350px;
+            max-width: 100%;
+
             @include below($sm) {
-                width: 100%;
-            }
-
-            .thumbnail-img {
-                border-radius: 20px;
-                box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.5);
-                display: block;
-                max-height: 350px;
-                max-width: 350px;
-
-                @include below($sm) {
-                    margin: 0 auto;
-                }
+                margin: 0 auto;
+                max-height: 250px;
             }
         }
 
         .title-container {
-            flex-grow: 1;
-
             @include below($sm) {
                 text-align: center;
             }

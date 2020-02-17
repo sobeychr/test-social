@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Badge, Card } from 'react-bootstrap';
 import { MdExpandLess, MdExpandMore } from 'react-icons/lib/md';
-import { TagEntry } from 'Component/event';
+import { TagContainer } from 'Component/event';
 import { monthToString } from 'Util/date';
 
 const getDate = timestamp => {
@@ -33,11 +33,7 @@ const EventEntry = ({ id, title, short, filter, tag, thumbnail, start }) => {
                         className='thumbnail'
                         src={`/asset/event/${thumbnail}`}
                     />
-                    <span className='tag'>
-                        {tag.map((entry, key) => (
-                            <TagEntry key={key} label={entry} />
-                        ))}
-                    </span>
+                    <TagContainer tags={tag} />
                     <span className='description-text'>{short}</span>
                 </Card.Text>
             </Card.Body>
