@@ -5,12 +5,12 @@ import debounce from 'lodash/debounce';
 
 const delay = 500;
 
-const FilterEvent = ({ setFilter }) => {
+const FilterEvent = ({ onFilter }) => {
     const ref = useRef();
 
     const onDebounce = () => {
         const value = ref.current.value;
-        setFilter(value);
+        onFilter(value);
     };
 
     const onChange = debounce(onDebounce, delay);

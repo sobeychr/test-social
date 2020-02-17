@@ -1,5 +1,17 @@
-import CreateButton from './button';
-import CreateForm from './form';
-import Style from './style';
+import React from 'react';
+import Modal from 'Component/modal';
 
-export { CreateButton, CreateForm };
+const CreateForm = ({ onHide, show }) => (
+    <Modal
+        backdrop='static'
+        closeButton
+        onHide={onHide}
+        show={show}
+        size='lg'
+        title='Create new event'
+    >
+        <p>new event content</p>
+    </Modal>
+);
+
+export default CreateForm;

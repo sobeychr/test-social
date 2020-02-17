@@ -9,160 +9,160 @@
     }
 }
 
-.eventlist .list {
-    margin-bottom: 2em;
-
+.eventlist {
     .loadmore {
-        margin-top: 1em;
+        margin: 1em 0;
     }
 
-    .month {
-        @include notFirst {
-            border-top: 2px solid #fff;
-            margin-top: 1em;
-            padding-top: 1em;
-        }
-
-        .month-label {
-            background: #303030;
-            border-radius: 0.25rem;
-            font-style: italic;
-            opacity: 0.5;
-            white-space: nowrap;
-
-            @include below($md) {
-                margin-bottom: 1em;
+    .list {
+        .month {
+            @include notFirst {
+                border-top: 2px solid #fff;
+                margin-top: 1em;
+                padding-top: 1em;
             }
 
-            @include between($sm, $md) {
-                padding: 0;
-            }
-
-            .month-label-title {
-                cursor: pointer;
-                display: block;
-                margin: 1em 0;
-                text-align: center;
-
-                @include above($sm) {
-                    position: sticky;
-                    top: 5.4em;
-                }
-            }
-        }
-
-        .month-list {
-        }
-    }
-
-    .event-entry {
-        border: 1px solid transparent;
-        box-shadow: 0 0 3px 3px transparent;
-        @include multiTransition([box-shadow, border-color, opacity]);
-
-        @include notFirst {
-            margin-top: 1em;
-        }
-
-        &:hover {
-            border-color: #999;
-            box-shadow: 0 0 3px 3px #999;
-        }
-
-        &.filter {
-            opacity: 0.5;
-
-            .header {
+            .month-label {
+                background: #303030;
+                border-radius: 0.25rem;
                 font-style: italic;
-                padding: 3px 1.25rem;
-
-                .title {
-                    font-size: 1em;
-                }
-            }
-            .body {
-                display: none;
-            }
-        }
-
-        .header {
-            align-items: stretch;
-            display: flex;
-            justify-content: space-between;
-            transition: padding 0.2s linear;
-
-            .date {
-                color: gray;
-                font-size: 0.5em;
-                font-style: italic;
+                opacity: 0.5;
                 white-space: nowrap;
-            }
 
-            .title {
-                display: block;
-                font-weight: bold;
-                margin-right: 0.4em;
-                max-height: 2.6em;
-                text-transform: uppercase;
-                text-overflow: ellipsis;
-                overflow: hidden;
-                width: 100%;
-            }
-        }
-
-        .description {
-            margin-bottom: 0;
-            position: relative;
-
-            @include below($sm) {
-                font-size: 0.8em;
-            }
-
-            &:not(.expand) {
-                @include below($sm) {
-                    margin-bottom: 2.5em;
-                    max-height: 280px;
+                @include below($md) {
+                    margin-bottom: 1em;
                 }
+
                 @include between($sm, $md) {
-                    max-height: 330px;
+                    padding: 0;
                 }
-                @include above($md) {
-                    max-height: 450px;
-                }
-            }
 
-            .tag {
-                display: block;
-
-                @include below($sm) {
+                .month-label-title {
+                    cursor: pointer;
+                    display: block;
+                    margin: 1em 0;
                     text-align: center;
-                }
 
-                .tag-entry {
-                    margin-bottom: 0.5em;
-                    padding: 0.5em 0.7em;
-
-                    @include notFirst {
-                        margin-left: 0.5em;
+                    @include above($sm) {
+                        position: sticky;
+                        top: 5.4em;
                     }
                 }
             }
+
+            .month-list {
+            }
         }
 
-        .thumbnail {
-            box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.5);
-            border-radius: 20px;
-            float: left;
-            margin: 0 0.5em 0.5em 0;
-            max-height: 150px;
-            max-width: 50%;
+        .event-entry {
+            border: 1px solid transparent;
+            box-shadow: 0 0 3px 3px transparent;
+            @include multiTransition([box-shadow, border-color, opacity]);
 
-            @include below($sm) {
-                display: block;
-                float: initial;
-                margin: 0 auto 0.5em auto;
+            @include notFirst {
+                margin-top: 1em;
+            }
+
+            &:hover {
+                border-color: #999;
+                box-shadow: 0 0 3px 3px #999;
+            }
+
+            &.filter {
+                opacity: 0.5;
+
+                .header {
+                    font-style: italic;
+                    padding: 3px 1.25rem;
+
+                    .title {
+                        font-size: 1em;
+                    }
+                }
+                .body {
+                    display: none;
+                }
+            }
+
+            .header {
+                align-items: stretch;
+                display: flex;
+                justify-content: space-between;
+                transition: padding 0.2s linear;
+
+                .date {
+                    color: gray;
+                    font-size: 0.5em;
+                    font-style: italic;
+                    white-space: nowrap;
+                }
+
+                .title {
+                    display: block;
+                    font-weight: bold;
+                    margin-right: 0.4em;
+                    max-height: 2.6em;
+                    text-transform: uppercase;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    width: 100%;
+                }
+            }
+
+            .description {
+                margin-bottom: 0;
+                position: relative;
+
+                @include below($sm) {
+                    font-size: 0.8em;
+                }
+
+                &:not(.expand) {
+                    @include below($sm) {
+                        margin-bottom: 2.5em;
+                        max-height: 280px;
+                    }
+                    @include between($sm, $md) {
+                        max-height: 330px;
+                    }
+                    @include above($md) {
+                        max-height: 450px;
+                    }
+                }
+
+                .tag {
+                    display: block;
+
+                    @include below($sm) {
+                        text-align: center;
+                    }
+
+                    .tag-entry {
+                        margin-bottom: 0.5em;
+                        padding: 0.5em 0.7em;
+
+                        @include notFirst {
+                            margin-left: 0.5em;
+                        }
+                    }
+                }
+            }
+
+            .thumbnail {
+                box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.5);
+                border-radius: 20px;
+                float: left;
+                margin: 0 0.5em 0.5em 0;
                 max-height: 150px;
-                max-width: 100%;
+                max-width: 50%;
+
+                @include below($sm) {
+                    display: block;
+                    float: initial;
+                    margin: 0 auto 0.5em auto;
+                    max-height: 150px;
+                    max-width: 100%;
+                }
             }
         }
     }

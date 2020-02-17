@@ -30,9 +30,9 @@
         margin: 0 0 0 1em;
 
         .filter-event-input {
-            @include below($sm) {
-                @include multiTransition([flex-grow, padding], 0.35s);
+            @include multiTransition([flex-grow, padding]);
 
+            @include below($sm) {
                 &:not(:focus) {
                     flex-grow: 0;
                     padding: 0;

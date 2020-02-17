@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Container } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import last from 'lodash/last';
 import Header from 'Component/header';
 import withValidateLogin from 'Hoc/validateLogin';
@@ -13,21 +13,9 @@ import {
 import { now } from 'Util/date';
 
 import AsideList from './aside';
+import CreateForm from './create';
 import List from './list';
-import { Loading } from './message';
-
-const LoadMore = ({ onClick }) => (
-    <Button
-        className='loadmore'
-        variant='outline-primary'
-        block
-        size='lg'
-        onClick={onClick}
-    >
-        {' '}
-        Load more{' '}
-    </Button>
-);
+import { Loading, LoadMore } from './message';
 
 const EventList = () => {
     const dispatch = useDispatch();
@@ -36,8 +24,13 @@ const EventList = () => {
     const isDisplay = isLoaded && !isLoading;
     const [filter, setFilter] = useState('');
     const list = useSelector(getList);
+    const [showForm, setShowForm] = useState(false);
 
-    const onClick = () => {
+    const onShowForm = () => {
+        setShowForm(!showForm);
+    };
+
+    const onLoadMore = () => {
         const lastEntry = last(list);
         const date = lastEntry.start + 1;
         dispatch(listFetch(date));
@@ -52,13 +45,14 @@ const EventList = () => {
     return (
         <>
             <Header page='Events' />
+            <CreateForm onHide={onShowForm} show={showForm} />
             <div className='eventlist'>
-                <AsideList setFilter={setFilter} />
+                <AsideList onFilter={setFilter} onShowForm={onShowForm} />
                 <Container as='main'>
                     {isDisplay ? (
                         <>
                             <List filter={filter} list={list} />
-                            <LoadMore onClick={onClick} />
+                            <LoadMore onClick={onLoadMore} />
                         </>
                     ) : (
                         <Loading />

@@ -31,7 +31,7 @@ const EventMonth = ({ filter, list, start }) => {
                     {list.length} events
                 </Button>
             </Col>
-            <Collapse in={isExpand} timeout='200'>
+            <Collapse in={isExpand} timeout={200}>
                 <Col className='month-list'>
                     {list.map((entry, key) => (
                         <EventEntry key={key} filter={filter} {...entry} />
