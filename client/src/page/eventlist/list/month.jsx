@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Col, Row } from 'react-bootstrap';
+import { Button, Col, Collapse, Row } from 'react-bootstrap';
 import { monthToString } from 'Util/date';
 
 import EventEntry from './entry';
@@ -10,11 +10,11 @@ const getDate = timestamp => {
 };
 
 const EventMonth = ({ filter, list, start }) => {
-    const [isCollapse, setCollapse] = useState(false);
+    const [isExpand, setExpand] = useState(true);
     const date = getDate(start);
 
     const onClick = () => {
-        setCollapse(!isCollapse);
+        setExpand(!isExpand);
     };
 
     return (
@@ -31,11 +31,13 @@ const EventMonth = ({ filter, list, start }) => {
                     {list.length} events
                 </Button>
             </Col>
-            <Col className={`month-list ${isCollapse ? 'collapse' : ''}`}>
-                {list.map((entry, key) => (
-                    <EventEntry key={key} filter={filter} {...entry} />
-                ))}
-            </Col>
+            <Collapse in={isExpand} timeout='200'>
+                <Col className='month-list'>
+                    {list.map((entry, key) => (
+                        <EventEntry key={key} filter={filter} {...entry} />
+                    ))}
+                </Col>
+            </Collapse>
         </Row>
     );
 };

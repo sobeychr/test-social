@@ -75,6 +75,10 @@
             .header {
                 font-style: italic;
                 padding: 3px 1.25rem;
+
+                .title {
+                    font-size: 1em;
+                }
             }
             .body {
                 display: none;
