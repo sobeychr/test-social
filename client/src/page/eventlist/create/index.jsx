@@ -1,17 +1,11 @@
 import React from 'react';
 import Form from 'react-jsonschema-form';
+import TransformError from 'Component/form/error';
 import Modal from 'Component/modal';
-import {error, schema, ui} from './schema';
+import { schema, ui } from './schema';
+
 
 const CreateForm = ({ onHide, show }) => {
-    const onChange = e => {
-        // console.log('onChange', e);
-    };
-
-    const onError = e => {
-        // console.log('onError', e);
-    };
-
     const onSubmit = e => {
         // console.log('onSubmit', e);
     };
@@ -23,14 +17,15 @@ const CreateForm = ({ onHide, show }) => {
             keyboard={false}
             onHide={onHide}
             show={show}
-            size='xl'
+            size='lg'
             title='Create new event'
         >
             <Form
-                onChange={onChange}
-                onError={onError}
+                liveValidate
                 onSubmit={onSubmit}
+                transformErrors={TransformError}
                 schema={schema}
+                showErrorList={false}
                 uiSchema={ui}
             />
         </Modal>
